@@ -3,8 +3,8 @@ import { useUnit } from 'effector-react';
 import { FC, useEffect } from 'react';
 import { pageMounted } from '../model/store';
 import { bookingModel } from '@/entity/booking';
-import styles from './Bookings.module.css';
 import { Empty } from '@/shared/ui/empty';
+import styles from './Bookings.module.css';
 
 export const BookingsPage: FC = () => {
     const bookings = useUnit(bookingModel.$bookings);
@@ -16,10 +16,10 @@ export const BookingsPage: FC = () => {
     return (
         <div className={styles.page}>
             <div className={styles.titleContainer}>
-                <Title text='Поселения' />
+                <Title text='Бронирования' />
             </div>
             <div className={styles.dataContainer}>
-                <table className={styles.table}>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>ID</th>

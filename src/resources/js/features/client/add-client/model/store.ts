@@ -44,7 +44,6 @@ export const setSeries = createEvent<string>();
 export const setNumber = createEvent<string>();
 
 export const formSubmitted = createEvent();
-export const errorAlertClosed = createEvent();
 
 sample({
     clock: setFirstName,
@@ -91,9 +90,3 @@ reset({
     clock: formSubmitted,
     target: $error
 });
-
-sample({
-    clock: errorAlertClosed,
-    fn: () => '',
-    target: $error
-})

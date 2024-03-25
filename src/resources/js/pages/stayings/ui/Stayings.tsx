@@ -21,7 +21,7 @@ export const StayingsPage: FC = () => {
                 <Title text='Поселения' />
             </div>
             <div className={styles.dataContainer}>
-                <table className={styles.table}>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>ID</th>

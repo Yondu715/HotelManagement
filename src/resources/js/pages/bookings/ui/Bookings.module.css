@@ -21,29 +21,3 @@
     border-radius: 5px;
     height: 100%;
 }
-
-.table {
-    border-spacing: 1;
-    border-collapse: collapse;
-    border-radius: 6px;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-
-    * {
-        position: relative
-    }
-
-    td,
-    th {
-        padding-left: 8px;
-        text-align: left;
-    }
-
-    thead tr {
-        height: 40px;
-        font-size: 16px;
-        color: var(--grey-text);
-    }
-}
