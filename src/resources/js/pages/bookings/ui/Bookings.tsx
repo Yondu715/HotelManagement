@@ -1,17 +1,12 @@
 import { Title } from '@/shared/ui/title';
 import { useUnit } from 'effector-react';
-import { FC, useEffect } from 'react';
-import { pageMounted } from '../model/store';
+import { FC } from 'react';
 import { bookingModel } from '@/entity/booking';
 import { Empty } from '@/shared/ui/empty';
 import styles from './Bookings.module.css';
 
 export const BookingsPage: FC = () => {
     const bookings = useUnit(bookingModel.$bookings);
-
-    useEffect(() => {
-        pageMounted();
-    }, []);
 
     return (
         <div className={styles.page}>

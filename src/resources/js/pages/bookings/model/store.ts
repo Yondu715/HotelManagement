@@ -1,11 +1,4 @@
-import { bookingModel } from '@/entity/booking';
-import { attach, createEvent, createStore, sample } from 'effector';
-
-const getBookingsFx = attach({
-    effect: bookingModel.getBookingsFx
-});
-
-export const pageMounted = createEvent();
+import { createEvent, createStore, sample } from 'effector';
 
 export const addButtonClicked = createEvent();
 export const $addStayingShow = createStore(false);
@@ -17,9 +10,4 @@ sample({
     },
     fn: ({ addStayingShow }) => !addStayingShow,
     target: $addStayingShow
-});
-
-sample({
-    clock: pageMounted,
-    target: getBookingsFx
 });

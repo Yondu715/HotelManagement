@@ -1,4 +1,3 @@
-import { clientModel } from '@/entity/client';
 import { roomModel } from '@/entity/room';
 import { stayingModel } from '@/entity/staying';
 import { attach, combine, createEvent, createStore, sample } from 'effector';
@@ -11,15 +10,9 @@ export const setClientId = createEvent<number>();
 
 export const formSubmitted = createEvent();
 
-const getClientsFx = attach({
-    effect: clientModel.getClientsFx
-});
-
 const addStayingFx = attach({
     effect: stayingModel.addStayingFx
 });
-
-export const pageMounted = createEvent();
 
 const $addStayingData = combine(roomModel.$selectedRoomId, $clientId, $note, (roomId, clientId, note) => {
     return {
@@ -29,8 +22,6 @@ const $addStayingData = combine(roomModel.$selectedRoomId, $clientId, $note, (ro
     }
 });
 
-$addStayingData.watch((data) => console.log(data));
-
 sample({
     clock: formSubmitted,
     source: {
@@ -38,11 +29,6 @@ sample({
     },
     fn: ({ data }) => data,
     target: addStayingFx
-});
-
-sample({
-    clock: pageMounted,
-    target: getClientsFx
 });
 
 sample({

@@ -3,12 +3,14 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import styles from './RootLayout.module.css';
 import { useEffect } from 'react';
 import { setNavigate } from '@/shared/routing/routes';
+import { layoutMounted } from '../model/store';
 
 export const RootLayout = () => {
 
     const navigate = useNavigate();
 
     useEffect(() => {
+        layoutMounted();
         setNavigate(navigate);
     }, []);
 

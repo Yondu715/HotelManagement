@@ -1,8 +1,8 @@
 import { Button } from '@/shared/ui/button';
 import { Modal } from '@/shared/ui/modal';
 import { useUnit } from 'effector-react';
-import { useEffect, useState } from 'react';
-import { $clientId, $note, formSubmitted, pageMounted, setClientId, setNote } from '../model/store';
+import { useState } from 'react';
+import { $clientId, $note, formSubmitted, setClientId, setNote } from '../model/store';
 import { clientModel } from '@/entity/client';
 import styles from './RoomStaying.module.css';
 
@@ -15,10 +15,6 @@ export const RoomStaying = () => {
         clientId: $clientId,
         clients: clientModel.$clients
     });
-
-    useEffect(() => {
-        pageMounted();
-    }, []);
 
     const showModal = () => {
         setIsModalOpen(true);
