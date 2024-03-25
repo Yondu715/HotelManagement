@@ -8,23 +8,23 @@ export type ApiException = {
 
 export type StayingDTO = {
     id: number,
-    client_id: number,
-    room_id: number,
-    room: RoomDTO,
-    client: ClientDTO
+    clientId: number,
+    roomId: number,
+    room?: RoomDTO,
+    client?: ClientDTO
     note: string,
-    check_in: string,
-    check_out?: string 
+    checkIn: string,
+    checkOut?: string
 }
 
 export type BookingDTO = {
     id: number,
-    client_id: number,
-    room_id: number,
-    room: RoomDTO,
-    client: ClientDTO
-    check_in: string,
-    check_out: string,
+    clientId: number,
+    roomId: number,
+    room?: RoomDTO,
+    client?: ClientDTO
+    checkIn: string,
+    checkOut: string,
     price: number
 }
 
@@ -42,10 +42,15 @@ export type ClientDTO = {
     firstName: string,
     middleName: string,
     lastName: string,
-    passport: {
+    passport?: {
         number: number,
         series: number
     }
+}
+
+export type PassportDTO = {
+    number: number,
+    series: number
 }
 
 export type AddClientDTO = {

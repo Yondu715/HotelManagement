@@ -5,8 +5,7 @@ import { mapAddStaying, mapStayingList } from '../lib/mapStaying';
 
 export const getStayingsFx = createEffect(async () => {
     const response = await getStayingsQuery();
-    console.log(mapStayingList(response));
-    return mapStayingList(response);
+    return mapStayingList(response.data);
 });
 
 export const addStayingFx = createEffect(async (data: AddStaying) => {

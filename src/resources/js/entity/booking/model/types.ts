@@ -5,8 +5,8 @@ export type Booking = {
     id: number,
     clientId: number,
     roomId: number,
-    room: Room,
-    client: Client
+    room?: Room,
+    client?: Client
     checkIn: string,
     checkOut: string,
     price: number

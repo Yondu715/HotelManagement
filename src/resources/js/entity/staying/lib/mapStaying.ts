@@ -7,12 +7,12 @@ export const mapStaying = (staying: StayingDTO): Staying => {
     return {
         id: staying.id,
         note: staying.note,
-        roomId: staying.room_id,
-        clientId: staying.client_id,
-        room: mapRoom(staying.room),
-        client: mapClient(staying.client),
-        checkIn: staying.check_in,
-        checkOut: staying.check_out
+        roomId: staying.roomId,
+        clientId: staying.clientId,
+        room: staying.room ? mapRoom(staying.room) : undefined,
+        client: staying.client ? mapClient(staying.client) : undefined,
+        checkIn: staying.checkIn,
+        checkOut: staying.checkOut
     }
 };
 

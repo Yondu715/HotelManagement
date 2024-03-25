@@ -1,5 +1,5 @@
-import { AddClientDTO, ClientDTO } from '@/shared/api/types';
-import { AddClient, Client } from '../model/types';
+import { AddClientDTO, ClientDTO, PassportDTO } from '@/shared/api/types';
+import { AddClient, Client, Passport } from '../model/types';
 
 export const mapClient = (client: ClientDTO): Client => {
     return {
@@ -7,12 +7,16 @@ export const mapClient = (client: ClientDTO): Client => {
         firstName: client.firstName,
         middleName: client.middleName,
         lastName: client.lastName,
-        passport: {
-            number: client.passport?.number,
-            series: client.passport?.series
-        }
+        passport: client.passport ? mapPassport(client.passport) : undefined
     }
 };
+
+const mapPassport = (passport: PassportDTO): Passport => {
+    return {
+        number: passport.number,
+        series: passport.series
+    }
+}
 
 export const mapClientList = (rooms: ClientDTO[]): Client[] => {
     return rooms.map((room) => mapClient(room));

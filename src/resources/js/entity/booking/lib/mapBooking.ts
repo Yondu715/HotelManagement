@@ -6,12 +6,12 @@ import { Booking } from '../model/types';
 export const mapBooking = (booking: BookingDTO): Booking => {
     return {
         id: booking.id,
-        roomId: booking.room_id,
-        clientId: booking.client_id,
-        room: mapRoom(booking.room),
-        client: mapClient(booking.client),
-        checkIn: booking.check_in,
-        checkOut: booking.check_out,
+        roomId: booking.roomId,
+        clientId: booking.clientId,
+        room: booking.room ? mapRoom(booking.room) : undefined,
+        client: booking.client ? mapClient(booking.client) : undefined,
+        checkIn: booking.checkIn,
+        checkOut: booking.checkOut,
         price: booking.price
     }
 };

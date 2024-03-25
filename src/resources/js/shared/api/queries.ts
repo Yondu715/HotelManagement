@@ -3,8 +3,8 @@ import { axiosInstance } from './core/instance';
 import { setToken } from './token/core';
 import { AddClientDTO, AddStayingDTO, ApiException, BookingDTO, ClientDTO, GetRoomsParams, ResponseWrap, RoomDTO, StayingDTO, TokenDto } from './types';
 
-export const getStayingRoomsQuery = async (getParams?: GetRoomsParams) => {
-    const response = await axiosInstance.get<ResponseWrap<RoomDTO[]>>(`/rooms/types/staying`, {
+export const getAvailableRoomsQuery = async (getParams?: GetRoomsParams) => {
+    const response = await axiosInstance.get<ResponseWrap<RoomDTO[]>>(`/rooms`, {
         params: {
             ...getParams
         }
@@ -13,13 +13,19 @@ export const getStayingRoomsQuery = async (getParams?: GetRoomsParams) => {
 };
 
 export const getClientsQuery = async () => {
-    const response = await axiosInstance.get<ResponseWrap<ClientDTO[]>>('/clients');
-    return response.data;
+    try {
+        const response = await axiosInstance.get<ResponseWrap<ClientDTO[]>>('/clients');
+        return response.data;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message
+    }
 }
 
 export const addClientQuery = async (client: AddClientDTO) => {
     try {
-        await axiosInstance.post('/clients', client);
+        const response = await axiosInstance.post('/clients', client);
+        return response;
     } catch (error) {
         const err = error as AxiosError<ApiException>;
         throw err.response?.data.message
@@ -27,23 +33,45 @@ export const addClientQuery = async (client: AddClientDTO) => {
 }
 
 export const addStayingQuery = async (data: AddStayingDTO) => {
-    await axiosInstance.post('/stayings', data);
+    try {
+        const response = await axiosInstance.post('/stayings', data);
+        return response;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message
+    }
 }
 
 export const checkOutClientQuery = async (data: number) => {
-    await axiosInstance.put('/stayings', {
-        stayingId: data
-    });
+    try {
+        const response = await axiosInstance.put('/stayings', {
+            stayingId: data
+        });
+        return response;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message;
+    }
 }
 
 export const getBookingsQuery = async () => {
-    const response = await axiosInstance.get<BookingDTO[]>('/bookings');
-    return response.data;
+    try {
+        const response = await axiosInstance.get<ResponseWrap<BookingDTO[]>>('/bookings');
+        return response.data;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message;
+    }
 }
 
 export const getStayingsQuery = async () => {
-    const response = await axiosInstance.get<StayingDTO[]>('/stayings');
-    return response.data;
+    try {
+        const response = await axiosInstance.get<ResponseWrap<StayingDTO[]>>('/stayings');
+        return response.data;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message;
+    }
 };
 
 export const loginQuery = async (email: string, password: string) => {

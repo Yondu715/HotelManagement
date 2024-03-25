@@ -7,7 +7,7 @@ export const $bookings = createStore<Booking[]>([]);
 
 export const getBookingsFx = createEffect(async () => {
     const response = await getBookingsQuery();
-    return mapBookingList(response);
+    return mapBookingList(response.data);
 });
 
 sample({

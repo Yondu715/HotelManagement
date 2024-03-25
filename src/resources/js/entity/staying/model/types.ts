@@ -6,8 +6,8 @@ export type Staying = {
     note: string,
     clientId: number,
     roomId: number,
-    room: Room,
-    client: Client,
+    room?: Room,
+    client?: Client,
     checkIn: string,
     checkOut?: string
 }

@@ -3,10 +3,15 @@ export type Client = {
     firstName: string,
     middleName: string,
     lastName: string,
-    passport: {
+    passport?: {
         number: number,
         series: number
     }
+}
+
+export type Passport = {
+    number: number,
+    series: number
 }
 
 export type AddClient = {
