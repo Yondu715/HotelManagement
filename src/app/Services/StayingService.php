@@ -13,7 +13,7 @@ class StayingService
 {
     public function getAll()
     {
-        return Staying::with(['client.passport', 'room']);
+        return Staying::with(['client.passport', 'room'])->get();
     }
 
     public function addStaying(AddStayingDto $addStayingDto)
