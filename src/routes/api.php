@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\BookingController;
 use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\RoomController;
+use App\Http\Controllers\Api\V1\StatisticController;
 use App\Http\Controllers\Api\V1\StayingController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,4 +40,10 @@ Route::prefix('bookings')
 ->group(function () {
     Route::get('/', [BookingController::class, 'index']);
     Route::post('/', [BookingController::class, 'store']);
+});
+
+Route::prefix('statistic')
+->middleware('auth:sanctum')
+->group(function () {
+    Route::get('/', [StatisticController::class, 'index']);
 });
