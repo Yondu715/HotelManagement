@@ -21,8 +21,12 @@ class StayingResource extends JsonResource
             'checkIn' => $this->check_in,
             'checkOut' => $this->check_out,
             'price' => $this->price,
-            'room' => $this->whenLoaded($this->room),
-            'client' => $this->whenLoaded($this->client)
+            'room' => RoomResource::make(
+                $this->whenLoaded('room')
+            ),
+            'client' => ClientResource::make(
+                $this->whenLoaded('client')
+            )
         ];
     }
 }

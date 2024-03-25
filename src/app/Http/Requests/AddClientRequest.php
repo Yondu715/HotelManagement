@@ -18,8 +18,8 @@ class AddClientRequest extends FormRequest
             'middleName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'comment' => 'required|string|max:255',
-            'number' => 'required|numeric|max:4,min:4',
-            'series' => 'required|numeric|max:6,min:6',
+            'number' => 'required|numeric',
+            'series' => 'required|numeric',
         ];
     }
 }

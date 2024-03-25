@@ -21,8 +21,12 @@ class BookingResource extends JsonResource
             'checkOut' => $this->check_out,
             'checkIn' => $this->check_in,
             'price' => $this->price,
-            'room' => $this->whenLoaded($this->room),
-            'client' => $this->whenLoaded($this->client)
+            'room' => RoomResource::make(
+                $this->whenLoaded('room')
+            ),
+            'client' => ClientResource::make(
+                $this->whenLoaded('client')
+            )
         ];
     }
 }

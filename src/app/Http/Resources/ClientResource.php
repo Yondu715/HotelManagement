@@ -19,8 +19,8 @@ class ClientResource extends JsonResource
             'firstName' => $this->first_name,
             'middleName' => $this->middle_name,
             'lastName' => $this->last_name,
-            'passport' => $this->whenLoaded(
-                PassportResource::make($this->passport)
+            'passport' => PassportResource::make(
+                $this->whenLoaded('passport')
             )
         ];
     }
