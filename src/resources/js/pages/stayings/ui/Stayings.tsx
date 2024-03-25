@@ -1,7 +1,8 @@
 import { stayingModel } from '@/entity/staying';
 import { Title } from '@/shared/ui/title';
 import { useUnit } from 'effector-react';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { pageMounted } from '../model/store';
 import { checkOutModel } from '@/features/staying/check-out-client';
 import { Button } from '@/shared/ui/button';
 import { Empty } from '@/shared/ui/empty';
@@ -9,6 +10,10 @@ import styles from './Stayings.module.css';
 
 export const StayingsPage: FC = () => {
     const stayings = useUnit(stayingModel.$stayings);
+
+    useEffect(() => {
+        pageMounted();
+    }, []);
 
     return (
         <div className={styles.page}>

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Dto\AddStayingDto;
+use App\DTO\AddStayingDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddStayingRequest;
 use App\Http\Requests\UpdateStayingRequest;
 use App\Http\Resources\StayingResource;
 use App\Services\StayingService;
-use Src\App\Dto\UpdateStayingDto;
+use App\DTO\UpdateStayingDto;
 
 class StayingController extends Controller
 {

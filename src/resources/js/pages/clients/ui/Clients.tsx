@@ -1,13 +1,18 @@
 import { Title } from '@/shared/ui/title';
 import styles from './Clients.module.css';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useUnit } from 'effector-react';
 import { clientModel } from '@/entity/client';
 import { AddClientForm } from '@/features/client/add-client';
 import { Empty } from '@/shared/ui/empty';
+import { pageMounted } from '../model/store';
 
 export const ClientsPage: FC = () => {
     const clients = useUnit(clientModel.$clients);
+
+    useEffect(() => {
+        pageMounted();
+    }, []);
 
     return (
         <div className={styles.page}>

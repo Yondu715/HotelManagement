@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\App\Dto;
+namespace App\DTO;
 
 use App\Http\Requests\UpdateStayingRequest;
 
@@ -17,7 +17,7 @@ class UpdateStayingDto
     public static function fromRequest(UpdateStayingRequest $updateStayingRequest)
     {
         return new self(
-            stayingId: $updateStayingRequest->clientId,
+            stayingId: $updateStayingRequest->stayingId,
         );
     }
 }

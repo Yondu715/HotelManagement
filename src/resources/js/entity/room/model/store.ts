@@ -2,6 +2,7 @@ import { getAvailableRoomsQuery } from '@/shared/api';
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import { OrderRoomType, Room } from './types';
 import { mapRoomList } from '../lib/mapRoom';
+import { reset } from 'patronum';
 
 export const getStayingRoomsFx = createEffect(async (filters?: {
     capacity?: string | null,
@@ -28,6 +29,11 @@ sample({
 sample({
     clock: setType,
     target: $type
+});
+
+reset({
+    clock: $type,
+    target: $rooms
 });
 
 sample({

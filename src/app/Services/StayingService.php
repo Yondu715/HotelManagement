@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Room;
 use App\Models\Staying;
 use Exception;
-use Src\App\Dto\UpdateStayingDto;
+use App\DTO\UpdateStayingDto;
 
 class StayingService
 {
@@ -28,9 +28,6 @@ class StayingService
             'client_id' => $addStayingDto->clientId,
             'check_in' => now(),
             'note' => $addStayingDto->note
-        ]);
-        $room->update([
-            'is_busy' => true
         ]);
         return $room;
     }
