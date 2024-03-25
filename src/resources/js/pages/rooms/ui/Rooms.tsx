@@ -5,12 +5,14 @@ import { useUnit } from 'effector-react';
 import { RoomCard, roomModel } from '@/entity/room';
 import { Empty } from '@/shared/ui/empty';
 import { setSelectedRoomId } from '@/entity/room/model/store';
-import { RoomStaying } from '@/features/staying/add-staying/ui/RoomStaying';
 import { Select } from '@/shared/ui/select';
 import { OrderRoomType } from '@/entity/room/model/types';
+import { AddStaying } from '@/features/staying/add-staying';
+import { AddBoocking } from '@/features/booking/add-booking';
 
 export const RoomsPage = () => {
     const rooms = useUnit(roomModel.$rooms);
+    const type = useUnit(roomModel.$type);
     const selectedRoomId = useUnit(roomModel.$selectedRoomId);
 
     return (
@@ -19,10 +21,10 @@ export const RoomsPage = () => {
                 <Title text='Номера' />
                 <Select options={[
                     {
-                        key: 'stay',
+                        key: OrderRoomType.STAY,
                         value: 'Заселение'
                     }, {
-                        key: 'book',
+                        key: OrderRoomType.BOOK,
                         value: 'Бронирование'
                     }
                 ]} onChange={(e) => roomModel.setType(e.target.value as OrderRoomType)}
@@ -47,8 +49,12 @@ export const RoomsPage = () => {
                 }
             </div>
             {
-                selectedRoomId &&
-                <RoomStaying />
+                (selectedRoomId && type === 'stay') &&
+                <AddStaying />
+            }
+            {
+                (selectedRoomId && type === 'book') &&
+                <AddBoocking />
             }
         </div>
     );

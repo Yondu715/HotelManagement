@@ -11,3 +11,10 @@ export type Booking = {
     checkOut: string,
     price: number
 }
+
+export type AddBoocking = {
+    clientId: number,
+    roomId: number,
+    checkIn: string,
+    checkOut: string
+}

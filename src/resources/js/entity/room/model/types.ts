@@ -7,4 +7,14 @@ export type Room = {
     price: number
 }
 
-export type OrderRoomType = 'stay' | 'book'
+export type GetRoomsParams = {
+    capacity?: string | null,
+    comfortLevel?: string | null,
+    checkIn?: string | null,
+    checkOut?: string | null
+}
+
+export enum OrderRoomType {
+    STAY = 'stay',
+    BOOK = 'book'
+}

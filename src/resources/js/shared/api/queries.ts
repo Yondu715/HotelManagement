@@ -1,13 +1,11 @@
 import { AxiosError } from 'axios';
 import { axiosInstance } from './core/instance';
 import { setToken } from './token/core';
-import { AddClientDTO, AddStayingDTO, ApiException, BookingDTO, ClientDTO, GetRoomsParams, ResponseWrap, RoomDTO, StayingDTO, TokenDto } from './types';
+import { AddBoockingDTO, AddClientDTO, AddStayingDTO, ApiException, BookingDTO, ClientDTO, GetRoomsParams, ResponseWrap, RoomDTO, StayingDTO, TokenDto } from './types';
 
-export const getAvailableRoomsQuery = async (getParams?: GetRoomsParams) => {
+export const getAvailableRoomsQuery = async (params?: GetRoomsParams) => {
     const response = await axiosInstance.get<ResponseWrap<RoomDTO[]>>(`/rooms`, {
-        params: {
-            ...getParams
-        }
+        params
     });
     return response.data;
 };
@@ -35,6 +33,16 @@ export const addClientQuery = async (client: AddClientDTO) => {
 export const addStayingQuery = async (data: AddStayingDTO) => {
     try {
         const response = await axiosInstance.post('/stayings', data);
+        return response;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message
+    }
+}
+
+export const addBoockingQuery = async (data: AddBoockingDTO) => {
+    try {
+        const response = await axiosInstance.post('/bookings', data);
         return response;
     } catch (error) {
         const err = error as AxiosError<ApiException>;

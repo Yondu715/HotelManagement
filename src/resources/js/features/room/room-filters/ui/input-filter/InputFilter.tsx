@@ -5,10 +5,11 @@ import dayjs from 'dayjs';
 
 interface IInputFilter {
     label?: string,
-    onChange?: (date: string | string[]) => void 
+    onChange?: (date: string | string[]) => void,
+    required?: boolean
 }
 
-export const InputFilter: FC<IInputFilter> = ({ label, onChange }) => {
+export const InputFilter: FC<IInputFilter> = ({ label, onChange, required = false }) => {
 
     const onChangeHandler = (_: dayjs.Dayjs, dateString: string | string[]) => {
         onChange?.(dateString)
@@ -17,7 +18,7 @@ export const InputFilter: FC<IInputFilter> = ({ label, onChange }) => {
     return (
         <div className={styles.filter}>
             <label>{label}</label>
-            <Datepicker className={styles.input} onChange={onChangeHandler}></Datepicker>
+            <Datepicker className={styles.input} required={required} onChange={onChangeHandler}></Datepicker>
         </div>
     );
 };

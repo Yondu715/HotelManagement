@@ -4,9 +4,9 @@ import { useUnit } from 'effector-react';
 import { useState } from 'react';
 import { $clientId, $note, formSubmitted, setClientId, setNote } from '../model/store';
 import { clientModel } from '@/entity/client';
-import styles from './RoomStaying.module.css';
+import styles from './AddStaying.module.css';
 
-export const RoomStaying = () => {
+export const AddStaying = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const {
         note, clients
@@ -44,10 +44,12 @@ export const RoomStaying = () => {
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <select>
+                        <select defaultValue={''}>
+                            <option value={''} disabled>Выберите клиента</option>
                             {
                                 clients.map((client) =>
                                     <option
+                                        key={client.id}
                                         value={client.id}
                                         onClick={() => setClientId(client.id)}
                                     >

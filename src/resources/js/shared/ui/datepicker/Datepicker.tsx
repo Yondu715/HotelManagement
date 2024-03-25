@@ -4,6 +4,12 @@ import dayjs from 'dayjs';
 
 export const Datepicker: FC<DatePickerProps> = ({ onChange, className, placeholder = '' }) => {
     return (
-        <DP onChange={onChange} placeholder={placeholder} className={className} minDate={dayjs(new Date())} />
+        <DP
+            onChange={onChange}
+            placeholder={placeholder}
+            className={className}
+            required
+            minDate={dayjs(new Date())}
+        />
     );
 };

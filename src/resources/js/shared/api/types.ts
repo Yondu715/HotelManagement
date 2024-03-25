@@ -64,7 +64,9 @@ export type AddClientDTO = {
 
 export type GetRoomsParams = {
     capacity?: string | null,
-    comfortLevel?: string | null
+    comfortLevel?: string | null,
+    checkIn?: string | null,
+    checkOut?: string | null
 }
 
 export type TokenDto = {
@@ -75,4 +77,11 @@ export type AddStayingDTO = {
     clientId: number,
     roomId: number,
     note: string
+}
+
+export type AddBoockingDTO = {
+    checkIn: string,
+    checkOut: string,
+    clientId: number,
+    roomId: number
 }

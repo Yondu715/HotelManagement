@@ -38,5 +38,5 @@ Route::prefix('bookings')
 ->middleware('auth:sanctum')
 ->group(function () {
     Route::get('/', [BookingController::class, 'index']);
-    Route::post('/', [StayingController::class, 'store']);
+    Route::post('/', [BookingController::class, 'store']);
 });

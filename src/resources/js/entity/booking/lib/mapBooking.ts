@@ -1,7 +1,7 @@
 import { mapRoom } from '@/entity/room/lib/mapRoom';
 import { mapClient } from '@/entity/client/lib/mapClient';
-import { BookingDTO } from '@/shared/api/types';
-import { Booking } from '../model/types';
+import { AddBoockingDTO, BookingDTO } from '@/shared/api/types';
+import { AddBoocking, Booking } from '../model/types';
 
 export const mapBooking = (booking: BookingDTO): Booking => {
     return {
@@ -19,3 +19,12 @@ export const mapBooking = (booking: BookingDTO): Booking => {
 export const mapBookingList = (bookings: BookingDTO[]): Booking[] => {
     return bookings.map((booking) => mapBooking(booking));
 };
+
+export const mapToBack = (addBoocking: AddBoocking): AddBoockingDTO => {
+    return {
+        clientId: addBoocking.clientId,
+        roomId: addBoocking.roomId,
+        checkIn: addBoocking.checkIn,
+        checkOut: addBoocking.checkOut
+    }
+}

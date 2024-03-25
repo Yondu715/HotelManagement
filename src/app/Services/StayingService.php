@@ -8,6 +8,8 @@ use App\Models\Room;
 use App\Models\Staying;
 use Exception;
 use App\DTO\UpdateStayingDto;
+use App\Models\Client;
+use Carbon\Carbon;
 
 class StayingService
 {
@@ -39,11 +41,19 @@ class StayingService
         if (!$staying) {
             throw new Exception('aboba');
         }
-        $clientCategoryIds = $staying->client()->first()->categories()->pluck('id')->toArray();
-        $categoriesWithDiscount = Category::whereIn('id', $clientCategoryIds)->get();
-        $totalDiscount = $categoriesWithDiscount->sum('discount.value');
 
-        $price = $staying->room->price - $staying->room->price * ($totalDiscount / 100);
+        $client = Client::query()->find($staying->client_id);
+        if (!$client) {
+            throw new Exception('aboba');
+        }
+
+        $checkIn = Carbon::parse($staying->check_in);
+        $checkOut = Carbon::parse(now());
+        $diffDays = $checkOut->diffInDays($checkIn);
+
+        $totalDiscount = $client->categories()->get()->sum('category.discount.value');
+        $price = $staying->room->price - ($staying->room->price * $diffDays * $totalDiscount / 100);
+
         $staying->update([
             'check_out' => now(),
             'price' => $price

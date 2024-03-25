@@ -1,18 +1,15 @@
 import { getAvailableRoomsQuery } from '@/shared/api';
 import { createEffect, createEvent, createStore, sample } from 'effector';
-import { OrderRoomType, Room } from './types';
+import { GetRoomsParams, OrderRoomType, Room } from './types';
 import { mapRoomList } from '../lib/mapRoom';
 import { reset } from 'patronum';
 
-export const getStayingRoomsFx = createEffect(async (filters?: {
-    capacity?: string | null,
-    comfortLevel?: string | null
-}) => {
+export const getStayingRoomsFx = createEffect(async (filters?: GetRoomsParams) => {
     const rooms = await getAvailableRoomsQuery(filters);
     return mapRoomList(rooms.data);
 });
 
-export const $type = createStore<OrderRoomType>('stay');
+export const $type = createStore<OrderRoomType>(OrderRoomType.STAY);
 
 export const $rooms = createStore<Room[]>([]);
 

@@ -20,7 +20,7 @@ class GetRoomsDto
         $this->capacity = $capacity;
         $this->comfortLevel = $comfortLevel;
         $this->checkIn = $checkIn ? $checkIn : now();
-        $this->checkOut = $checkOut ? $checkOut : now();
+        $this->checkOut = $this->getCheckOut($checkIn, $checkOut);
     }
 
     public static function fromRequest(GetRoomsRequest $getRoomsRequest)
@@ -31,5 +31,16 @@ class GetRoomsDto
             checkIn: $getRoomsRequest->checkIn,
             checkOut: $getRoomsRequest->checkOut
         );
+    }
+
+    private function getCheckOut(?string $checkIn, ?string $checkOut)
+    {
+        if ($checkIn && $checkOut) {
+            return $checkOut;
+        }
+        if ($checkIn && !$checkOut) {
+            return $checkIn;
+        }
+        return now();
     }
 }
