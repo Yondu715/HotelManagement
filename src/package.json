@@ -1,0 +1,28 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.67",
+        "@types/react-dom": "^18.2.22",
+        "@vitejs/plugin-react": "^4.2.1",
+        "laravel-vite-plugin": "^1.0",
+        "vite": "^5.0",
+        "vite-plugin-checker": "^0.6.4"
+    },
+    "dependencies": {
+        "antd": "^5.15.3",
+        "axios": "^1.6.8",
+        "dayjs": "^1.11.10",
+        "effector": "^23.2.0",
+        "effector-react": "^23.2.0",
+        "patronum": "^2.2.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.22.3",
+        "typescript": "^5.4.3"
+    }
+}

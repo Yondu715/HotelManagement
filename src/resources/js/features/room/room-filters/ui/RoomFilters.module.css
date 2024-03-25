@@ -1,0 +1,12 @@
+.filtersContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2vw;
+    padding-bottom: 20px;
+}
+
+.searchButton {
+    height: 50px;
+    width: 190px;
+}

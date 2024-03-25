@@ -1,0 +1,10 @@
+.page {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../images/bg.jpg');
+}
+
+.container {
+    padding: 8em 0;
+}
+

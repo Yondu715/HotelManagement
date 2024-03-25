@@ -1,0 +1,67 @@
+import { sessionModel } from '@/entity/session';
+import { $navigate, routes } from '@/shared/routing/routes';
+import { attach, createEvent, createStore, sample } from 'effector';
+import { reset } from 'patronum';
+
+export const $email = createStore('');
+export const $password = createStore('');
+export const $error = createStore('');
+
+const loginFx = attach({
+    effect: sessionModel.loginFx,
+    source: {
+        email: $email,
+        password: $password
+    },
+});
+
+export const $isLoading = loginFx.pending;
+
+export const setEmail = createEvent<string>();
+export const setPassword = createEvent<string>();
+export const formSubmited = createEvent();
+export const errorAlertClosed = createEvent();
+
+sample({
+    clock: setEmail,
+    target: $email
+});
+
+sample({
+    clock: setPassword,
+    target: $password
+});
+
+sample({
+    clock: formSubmited,
+    target: loginFx
+});
+
+sample({
+    clock: loginFx.done,
+    source: {
+        navigate: $navigate
+    },
+    fn: ({ navigate }) => {
+        navigate?.(routes.dashboard);
+    }
+});
+
+sample({
+    clock: loginFx.fail,
+    fn: (error) => error.error,
+    target: $error
+});
+
+reset({
+    clock: formSubmited,
+    target: $error
+});
+
+sample({
+    clock: errorAlertClosed,
+    fn: () => '',
+    target: $error
+});
+
+

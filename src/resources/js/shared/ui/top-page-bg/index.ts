@@ -1,0 +1,1 @@
+export { TopPageBg } from './TopPageBg.tsx';
