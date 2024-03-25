@@ -85,3 +85,14 @@ export type AddBoockingDTO = {
     clientId: number,
     roomId: number
 }
+
+export type MonthlyPriceStatistic = {
+    month: string,
+    price: number
+}
+
+export type StatisticDTO = {
+    clientsCount: number,
+    bookingStatistic: MonthlyPriceStatistic[],
+    stayingStatistic: MonthlyPriceStatistic[]
+}
