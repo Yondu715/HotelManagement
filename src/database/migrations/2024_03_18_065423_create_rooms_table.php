@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('comfort_level');
             $table->float('price');
             $table->string('image')->nullable();
-            $table->boolean('is_busy')->default(false);
             $table->timestamps();
         });
     }

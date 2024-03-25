@@ -9,6 +9,16 @@ class Client extends Authenticatable
 {
     use HasFactory;
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     protected $fillable = [
         'first_name',
         'middle_name',

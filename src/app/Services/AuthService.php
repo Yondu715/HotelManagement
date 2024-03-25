@@ -15,6 +15,6 @@ class AuthService
         if (!$user || !Hash::check($loginDTO->password, $user->password)) {
             throw new UnauthorizedException();
         }
-        return $user;
+        return $user->with('role')->first();
     }
 }

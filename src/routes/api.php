@@ -23,9 +23,7 @@ Route::prefix('clients')
 Route::prefix('rooms')
     ->middleware('auth:sanctum')
     ->group(function () {
-        Route::get('/', [RoomController::class, 'index']);
-        Route::get('/types/staying', [RoomController::class, 'stayingRooms']);
-        Route::get('/types/booking', [RoomController::class, 'bookingRooms']);
+        Route::get('/', [RoomController::class, 'getAvailableRooms']);
     });
 
 Route::prefix('stayings')

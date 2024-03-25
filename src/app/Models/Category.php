@@ -9,6 +9,16 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function clients() {
         return $this->belongsToMany(Client::class, 'client_category', 'client_id');
     }

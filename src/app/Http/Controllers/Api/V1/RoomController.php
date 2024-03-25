@@ -16,17 +16,11 @@ class RoomController extends Controller
     ) {
     }
 
-    public function stayingRooms(GetRoomsRequest $getRoomsRequest)
+    public function getAvailableRooms(GetRoomsRequest $getRoomsRequest)
     {
         $getRoomsDto = GetRoomsDto::fromRequest($getRoomsRequest);
         $rooms = $this->roomService->getAvailableRooms($getRoomsDto);
         return RoomResource::collection($rooms);
     }
 
-    public function bookingRooms(GetRoomsRequest $getRoomsRequest)
-    {
-        $getRoomsDto = GetRoomsDTO::fromRequest($getRoomsRequest);
-        $filteredRooms = $this->roomService->getAvailableRooms($getRoomsDto);
-        return RoomResource::collection($filteredRooms);
-    }
 }
