@@ -2,7 +2,7 @@
     display: flex;
     height: 100vh;
     width: 100%;
-    padding: 1vh;
+    padding: var(--inside-padding);
     gap: 1vw;
     background-color: #ebedef;
 }

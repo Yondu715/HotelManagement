@@ -23,9 +23,4 @@ class ClientPassport extends Model
         'created_at',
         'updated_at',
     ];
-
-    public function client()
-    {
-        return $this->hasOne(Client::class);
-    }
 }

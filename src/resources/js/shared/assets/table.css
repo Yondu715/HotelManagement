@@ -7,19 +7,21 @@
     margin: 0 auto;
     position: relative;
 
-    * {
-        position: relative
-    }
-
-    td,
     th {
-        padding-left: 8px;
-        text-align: left;
-    }
-
-    thead tr {
-        height: 40px;
-        font-size: 16px;
         color: var(--grey-text);
     }
+    
+    th,
+    td {
+        text-align: left;
+        font-size: 16px;
+        padding-left: var(--inside-padding);
+        padding-right: var(--inside-padding);
+    }
+
+    tr {
+        height: 12vh;
+        border-bottom: 1px solid var(--grey-text);
+    }
+
 }

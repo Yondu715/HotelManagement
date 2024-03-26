@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\DTO\AddBoockingDto;
 use App\Models\Booking;
-use App\Models\Category;
 use App\Models\Client;
 use App\Models\Room;
 use Carbon\Carbon;

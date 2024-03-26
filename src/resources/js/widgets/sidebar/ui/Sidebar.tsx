@@ -1,5 +1,5 @@
 import { routes } from '@/shared/routing';
-import { CustomLink } from './CustomLink';
+import { CustomLink } from './custom-link/CustomLink';
 import styles from './Sidebar.module.css';
 import { Divider } from '@/shared/ui/divider/Divider';
 

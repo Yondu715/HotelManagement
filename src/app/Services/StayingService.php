@@ -26,12 +26,12 @@ class StayingService
             throw new Exception('aboba');
         }
 
-        $room->stayings()->create([
+        $staying = $room->stayings()->create([
             'client_id' => $addStayingDto->clientId,
             'check_in' => now(),
             'note' => $addStayingDto->note
         ]);
-        return $room;
+        return $staying;
     }
 
     public function checkOut(UpdateStayingDto $updateStayingDto)

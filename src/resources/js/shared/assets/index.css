@@ -19,6 +19,7 @@ body {
     --secondary-color: #ff8d24;
     --text-primary: #04081b;
     --text-secondary: #fff;
-    --grey-text: #c4c8cb;
+    --grey-text: #8b9299;
     --light-color: #fff;
+    --inside-padding: 1rem;
 }
