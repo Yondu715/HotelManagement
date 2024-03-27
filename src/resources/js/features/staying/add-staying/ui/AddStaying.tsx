@@ -31,7 +31,9 @@ export const AddStaying = () => {
 
     return (
         <>
-            <Button text='Заселить гостя' onClick={showModal} />
+            <Button onClick={showModal} >
+                Заселить гостя
+            </Button>
             <Modal title="Заселение" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form className={styles.form}>
                     <div className={styles.formGroup}>

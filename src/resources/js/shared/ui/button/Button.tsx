@@ -1,18 +1,18 @@
-import { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler, ReactNode } from 'react';
 import { Button as Btn } from 'antd';
 import styles from './Button.module.css';
 
 interface IButton {
-    text?: string,
-    onClick?: MouseEventHandler,
+    onClick?: MouseEventHandler<HTMLElement>,
     className?: string,
-    loading?: boolean
+    loading?: boolean,
+    children?: ReactNode
 }
 
-export const Button: FC<IButton> = ({text, onClick, className, loading = false}) => {
+export const Button: FC<IButton> = ({ children, onClick, className, loading = false}) => {
     return (
         <Btn onClick={onClick} loading={loading} className={[styles.button, className].join(' ')}>
-            {text}
+            {children}
         </Btn>
     );
 }

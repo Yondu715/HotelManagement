@@ -29,6 +29,7 @@ export const StayingsPage: FC = () => {
                             <th>ID Клиента</th>
                             <th>Дата заезда</th>
                             <th>Дата выезда</th>
+                            <th>Цена</th>
                             <th>Действия</th>
                         </tr>
                     </thead>
@@ -41,9 +42,13 @@ export const StayingsPage: FC = () => {
                                     <td>{staying.clientId}</td>
                                     <td>{staying.checkIn}</td>
                                     <td>{staying.checkOut ?? '-'}</td>
+                                    <td>{staying.price ?? '-'}</td>
                                     <td>{
                                         staying.checkOut ? '' :
-                                            <Button text='Выселить'  onClick={() => checkOutModel.checkOutClicked(staying.id)} />}
+                                            <Button onClick={() => checkOutModel.checkOutClicked(staying.id)} >
+                                                Выселить
+                                            </Button>
+                                    }
                                     </td>
                                 </tr>
                             )

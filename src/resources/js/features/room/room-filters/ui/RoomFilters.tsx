@@ -43,9 +43,10 @@ export const RoomFilters: FC = () => {
             <Button
                 className={styles.searchButton}
                 loading={isLoading}
-                text='Поиск номеров'
                 onClick={() => searchStarted()}
-            />
+            >
+                Поиск номеров
+            </Button>
         </form>
     );
 }

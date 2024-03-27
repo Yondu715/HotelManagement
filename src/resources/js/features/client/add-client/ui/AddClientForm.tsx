@@ -9,7 +9,7 @@ import {
 import { Button } from '@/shared/ui/button';
 import { ErrorBlock } from '@/shared/ui/error';
 import styles from './AddClientForm.module.css';
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { Modal } from '@/shared/ui/modal';
 
 export const AddClientForm = () => {
@@ -26,6 +26,11 @@ export const AddClientForm = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+
+    const buttonHandler = (e: MouseEvent) => {
+        e.preventDefault();
+        formSubmitted();
+    }
 
     const {
         firstName, lastName, middleName,
@@ -44,7 +49,9 @@ export const AddClientForm = () => {
 
     return (
         <>
-            <Button text='Добавить гостя' onClick={showModal} />
+            <Button onClick={showModal}>
+                Добавить гостя
+            </Button>
             <Modal title="Добавление гостя" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form className={styles.form}>
                     {
@@ -110,10 +117,9 @@ export const AddClientForm = () => {
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <Button text='Добавить' loading={isLoading} className={styles.actionButton} onClick={(e) => {
-                            e.preventDefault();
-                            formSubmitted();
-                        }} />
+                        <Button loading={isLoading} className={styles.actionButton} onClick={buttonHandler}>
+                            Добавить
+                        </Button>
                     </div>
                 </form>
             </Modal>

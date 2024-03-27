@@ -11,6 +11,7 @@ export const mapStaying = (staying: StayingDTO): Staying => {
         clientId: staying.clientId,
         room: staying.room ? mapRoom(staying.room) : undefined,
         client: staying.client ? mapClient(staying.client) : undefined,
+        price: staying.price,
         checkIn: staying.checkIn,
         checkOut: staying.checkOut
     }

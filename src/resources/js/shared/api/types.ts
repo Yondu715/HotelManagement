@@ -13,6 +13,7 @@ export type StayingDTO = {
     room?: RoomDTO,
     client?: ClientDTO
     note: string,
+    price?: number,
     checkIn: string,
     checkOut?: string
 }

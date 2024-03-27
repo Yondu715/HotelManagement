@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import { useUnit } from 'effector-react';
 import { $email, $error, $isLoading, $password, errorAlertClosed, formSubmited, setEmail, setPassword } from '../model/store';
 import { Button } from '@/shared/ui/button';
@@ -14,6 +14,11 @@ export const LoginForm: FC = () => {
         isLoading: $isLoading,
         error: $error
     });
+
+    const submitHandler = (e: MouseEvent) => {
+        e.preventDefault();
+        formSubmited();
+    }
 
     return (
         <form className={styles.form}>
@@ -42,10 +47,13 @@ export const LoginForm: FC = () => {
                 />
             </div>
             <div className={styles.formGroup}>
-                <Button text='Войти' loading={isLoading} className={styles.actionButton} onClick={(e) => {
-                    e.preventDefault();
-                    formSubmited()
-                }} />
+                <Button
+                    loading={isLoading}
+                    className={styles.actionButton}
+                    onClick={submitHandler}
+                >
+                    Войти
+                </Button>
             </div>
         </form>
     );

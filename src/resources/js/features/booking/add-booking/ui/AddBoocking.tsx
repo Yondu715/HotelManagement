@@ -30,7 +30,9 @@ export const AddBoocking = () => {
 
     return (
         <>
-            <Button text='Забронировать номер' onClick={showModal} />
+            <Button onClick={showModal}>
+                Забронировать номер
+            </Button>
             <Modal title="Бронирование" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form className={styles.form}>
                     <div className={styles.formGroup}>
