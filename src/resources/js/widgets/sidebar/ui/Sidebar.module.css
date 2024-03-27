@@ -4,22 +4,12 @@
     height: 100%;
     background: #fff;
     align-items: flex-start;
-    border-radius: 20px;
-}
-
-.title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5%;
-    margin-top: 20px;
-    width: 100%;
-    font-size: 30px;
-}
-
-.menu {
-    width: 100%;
+    border-radius: var(--border-radius);
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
+    padding-top: var(--inside-padding);
+    gap: 1%;
+}
+
+.icon {
+    font-size: 23px;
 }

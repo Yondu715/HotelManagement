@@ -10,12 +10,15 @@ interface ILink {
 
 export const CustomLink: FC<ILink> = ({ label, to, icon }) => {
     const resolvedPath = useResolvedPath(to);
-    const isActive = useMatch({path: resolvedPath.pathname, end: true});
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
     return (
         <div className={[isActive ? styles.active : '', styles.link].join(' ')}>
-            {icon}
-            <Link to={to}>{label}</Link>
+            <div className={styles.indicator} />
+            <div className={styles.label}>
+                {icon}
+                <Link to={to}>{label}</Link>
+            </div>
         </div>
     );
 };

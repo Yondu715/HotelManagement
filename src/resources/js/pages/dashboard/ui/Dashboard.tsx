@@ -11,7 +11,6 @@ import { MonthlyChart } from './MonthlyChart/MonthlyChart';
 export const DashboardPage = () => {
     const statistic = useUnit(statisticModel.$statistic);
 
-    console.log(statistic);
     useEffect(() => {
         pageMounted();
     }, []);

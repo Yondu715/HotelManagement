@@ -20,7 +20,7 @@
     }
 
     tr {
-        height: 12vh;
+        height: clamp(50px, 10vh, 60px);
         border-bottom: 1px solid var(--grey-text);
     }
 

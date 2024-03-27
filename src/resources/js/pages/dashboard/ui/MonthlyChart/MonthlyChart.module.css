@@ -2,7 +2,7 @@
     background-color: #fff;
     width: 30vw;
     height: 40vh;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
     padding: 1rem;

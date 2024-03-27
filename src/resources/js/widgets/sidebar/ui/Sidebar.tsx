@@ -1,20 +1,36 @@
 import { routes } from '@/shared/routing';
 import { CustomLink } from './custom-link/CustomLink';
 import styles from './Sidebar.module.css';
-import { Divider } from '@/shared/ui/divider/Divider';
+import { IconDashboard, IconClient, IconRoom, IconBooking, IconStaying } from '@/shared/ui/icons';
 
 export const Sidebar = () => {
     return (
         <div className={styles.sidebar}>
-            <div className={styles.title}>Отель</div>
-            <Divider />
-            <div className={styles.menu}>
-                <CustomLink to={routes.dashboard} label='Главная' />
-                <CustomLink to={routes.clients} label='Клиенты' />
-                <CustomLink to={routes.rooms} label='Доступные номера' />
-                <CustomLink to={routes.stayings} label='Поселения' />
-                <CustomLink to={routes.bookings} label='Брони' />
-            </div>
+            <CustomLink
+                icon={<IconDashboard className={styles.icon} />}
+                to={routes.dashboard}
+                label='Главная'
+            />
+            <CustomLink
+                icon={<IconClient className={styles.icon} />}
+                to={routes.clients}
+                label='Клиенты'
+            />
+            <CustomLink
+                icon={<IconRoom className={styles.icon} />}
+                to={routes.rooms}
+                label='Доступные номера'
+            />
+            <CustomLink
+                icon={<IconStaying className={styles.icon} />}
+                to={routes.stayings}
+                label='Поселения'
+            />
+            <CustomLink
+                icon={<IconBooking className={styles.icon} />}
+                to={routes.bookings}
+                label='Брони'
+            />
         </div>
     );
 };
