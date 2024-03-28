@@ -1,9 +1,10 @@
 import { Button } from '@/shared/ui/button';
 import { Modal } from '@/shared/ui/modal';
 import { useUnit } from 'effector-react';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { $clientId, $note, formSubmitted, setClientId, setNote } from '../model/store';
 import { clientModel } from '@/entity/client';
+import { Input } from '@/shared/ui/input';
 import styles from './AddStaying.module.css';
 
 export const AddStaying = () => {
@@ -37,12 +38,11 @@ export const AddStaying = () => {
             <Modal title="Заселение" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form className={styles.form}>
                     <div className={styles.formGroup}>
-                        <input
+                        <Input
                             placeholder='Замечание'
-                            className={styles.formInput}
                             type='text'
                             value={note}
-                            onChange={(e) => setNote(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setNote(e.target.value)}
                         />
                     </div>
                     <div className={styles.formGroup}>

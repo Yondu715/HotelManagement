@@ -6,6 +6,16 @@ export type ApiException = {
     message: string
 }
 
+export type UserDto = {
+    email: string,
+    name: string
+}
+
+export type AuthInfoDto = {
+    token: string,
+    user: UserDto
+}
+
 export type StayingDTO = {
     id: number,
     clientId: number,

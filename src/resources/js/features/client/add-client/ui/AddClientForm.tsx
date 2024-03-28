@@ -8,9 +8,11 @@ import {
 } from '../model/store';
 import { Button } from '@/shared/ui/button';
 import { ErrorBlock } from '@/shared/ui/error';
-import styles from './AddClientForm.module.css';
-import { MouseEvent, useState } from 'react';
+import { ChangeEvent, MouseEvent, useState } from 'react';
 import { Modal } from '@/shared/ui/modal';
+import { IconAddUser } from '@/shared/ui/icons';
+import { Input } from '@/shared/ui/input';
+import styles from './AddClientForm.module.css';
 
 export const AddClientForm = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,69 +52,69 @@ export const AddClientForm = () => {
     return (
         <>
             <Button onClick={showModal}>
-                Добавить гостя
+                <IconAddUser />
+                Добавить клиента
             </Button>
-            <Modal title="Добавление гостя" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Modal
+                title="Добавление гостя"
+                open={isModalOpen}
+                onOk={handleOk}
+                onCancel={handleCancel}
+            >
                 <form className={styles.form}>
                     {
                         error &&
                         <ErrorBlock message={error} />
                     }
                     <div className={styles.formGroup}>
-                        <input
-                            className={styles.formInput}
+                        <Input
                             type='text'
                             placeholder='Имя'
                             value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
                             required
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <input
-                            className={styles.formInput}
+                        <Input
                             type='text'
                             placeholder='Фамилия'
                             value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
                             required
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <input
-                            className={styles.formInput}
+                        <Input
                             type='text'
                             placeholder='Отчество'
                             value={middleName}
-                            onChange={(e) => setMiddleName(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setMiddleName(e.target.value)}
                             required
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <input
-                            className={styles.formInput}
+                        <Input
                             type='text'
                             placeholder='Серия'
                             value={series}
-                            onChange={(e) => setSeries(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setSeries(e.target.value)}
                             required
                         />
-                        <input
-                            className={styles.formInput}
+                        <Input
                             type='text'
                             placeholder='Номер'
                             value={number}
-                            onChange={(e) => setNumber(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setNumber(e.target.value)}
                             required
                         />
                     </div>
                     <div className={styles.formGroup}>
-                        <input
-                            className={styles.formInput}
+                        <Input
                             type='text'
                             placeholder='Комментарий'
                             value={comment}
-                            onChange={(e) => setComment(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setComment(e.target.value)}
                             required
                         />
                     </div>

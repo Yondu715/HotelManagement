@@ -3,9 +3,9 @@ import { axiosInstance } from './core/instance';
 import { setToken } from './token/core';
 import {
     AddBoockingDTO, AddClientDTO, AddStayingDTO,
-    ApiException, BookingDTO, ClientDTO, GetRoomsParams,
-    ResponseWrap, RoomDTO, StatisticDTO,
-    StayingDTO, TokenDto
+    ApiException, AuthInfoDto, BookingDTO,
+    ClientDTO, GetRoomsParams, ResponseWrap,
+    RoomDTO, StatisticDTO, StayingDTO
 } from './types';
 
 export const getAvailableRoomsQuery = async (params?: GetRoomsParams) => {
@@ -92,12 +92,12 @@ export const loginQuery = async (email: string, password: string) => {
         baseURL: 'http://localhost:80/sanctum/csrf-cookie'
     });
     try {
-        const response = await axiosInstance.post<TokenDto>('/auth/login', {
+        const response = await axiosInstance.post<AuthInfoDto>('/auth/login', {
             email,
             password
         });
         setToken(response.data.token);
-        return response.data.token;
+        return response.data;
     } catch (error) {
         const err = error as AxiosError<ApiException>;
         throw err.response?.data.message
@@ -108,6 +108,16 @@ export const getStatisticQuery = async () => {
     try {
         const response = await axiosInstance.get<ResponseWrap<StatisticDTO>>('/statistic');
         return response.data;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message
+    }
+}
+
+export const deleteBookingQuery = async (bookingId: number) => {
+    try {
+        const response = await axiosInstance.delete(`/bookings/${bookingId}`);
+        return response;
     } catch (error) {
         const err = error as AxiosError<ApiException>;
         throw err.response?.data.message

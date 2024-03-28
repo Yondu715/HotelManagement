@@ -17,7 +17,7 @@ class StayingResource extends JsonResource
         return [
             'id' => $this->id,
             'clientId' => $this->client_id,
-            'roomId' => $this->roomId,
+            'roomId' => $this->room_id,
             'checkIn' => $this->check_in,
             'checkOut' => $this->check_out,
             'price' => $this->price,

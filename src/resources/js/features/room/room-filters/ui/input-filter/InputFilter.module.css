@@ -20,7 +20,9 @@
     outline: none;
 }
 
-.input:hover, .input:focus, .input:active {
+.input:hover, .input:focus, .input:active, .input:focus-within {
+    box-shadow: none;
+    border-color: transparent;
     border-bottom: 1px solid var(--text-primary);
     background: transparent;
 }

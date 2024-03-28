@@ -40,6 +40,7 @@ Route::prefix('bookings')
 ->group(function () {
     Route::get('/', [BookingController::class, 'index']);
     Route::post('/', [BookingController::class, 'store']);
+    Route::delete('/{bookingId}', [BookingController::class, 'destroy']);
 });
 
 Route::prefix('statistic')

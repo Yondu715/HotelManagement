@@ -1,0 +1,1 @@
+export { DeleteBooking } from './ui/DeleteBooking';

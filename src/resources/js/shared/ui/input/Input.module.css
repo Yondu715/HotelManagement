@@ -1,0 +1,21 @@
+.input {
+    height: 50px;
+    width: 100%;
+    color: black;
+    border: 1px solid #727272;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all .3s;
+}
+
+.input:hover {
+    border: 1px solid #000000;
+    background: transparent;
+}
+
+.input:focus {
+    border: 1px solid #000000;
+    outline: none;
+}

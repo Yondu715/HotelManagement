@@ -1,8 +1,9 @@
-import { FC, MouseEvent } from 'react';
+import { ChangeEvent, FC, MouseEvent } from 'react';
 import { useUnit } from 'effector-react';
-import { $email, $error, $isLoading, $password, errorAlertClosed, formSubmited, setEmail, setPassword } from '../model/store';
+import { $email, $error, $isLoading, $password, formSubmited, setEmail, setPassword } from '../model/store';
 import { Button } from '@/shared/ui/button';
 import { ErrorBlock } from '@/shared/ui/error';
+import { Input } from '@/shared/ui/input';
 import styles from './LoginForm.module.css';
 
 export const LoginForm: FC = () => {
@@ -24,25 +25,23 @@ export const LoginForm: FC = () => {
         <form className={styles.form}>
             {
                 error &&
-                <ErrorBlock message={error} onClose={() => errorAlertClosed()} />
+                <ErrorBlock message={error} />
             }
             <div className={styles.formGroup}>
-                <input
-                    className={styles.formInput}
+                <Input
                     type='email'
                     placeholder='Почта'
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                     required
                 />
             </div>
             <div className={styles.formGroup}>
-                <input
-                    className={styles.formInput}
+                <Input
                     type='password'
                     placeholder='Пароль'
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                     required
                 />
             </div>

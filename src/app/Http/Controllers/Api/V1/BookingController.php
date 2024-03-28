@@ -28,4 +28,9 @@ class BookingController extends Controller
         $this->bookingService->createBoocking($addBoockingDto);
         return response()->json()->setStatusCode(201);
     }
+
+    public function destroy(int $bookingId) {
+        
+        return response()->noContent();
+    }
 }

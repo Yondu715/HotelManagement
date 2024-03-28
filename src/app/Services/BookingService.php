@@ -11,11 +11,13 @@ use Exception;
 
 class BookingService
 {
-    public function getAll() {
+    public function getAll()
+    {
         return Booking::with(['room', 'client.passport'])->get();
     }
 
-    public function createBoocking(AddBoockingDto $addBoockingDto) {
+    public function createBoocking(AddBoockingDto $addBoockingDto)
+    {
         /** @var ?Room */
         $room = Room::query()->find($addBoockingDto->roomId);
         if (!$room) {
@@ -33,7 +35,7 @@ class BookingService
 
         $totalDiscount = $client->categories()->get()->sum('category.discount.value');
         $price = $room->price - ($room->price * $diffDays * $totalDiscount / 100);
-        
+
         $booking = $room->bookings()->create([
             'room_id' => $addBoockingDto->roomId,
             'client_id' => $addBoockingDto->clientId,
@@ -43,5 +45,10 @@ class BookingService
         ]);
 
         return $booking;
+    }
+
+    public function deleteBooking(int $bookingId)
+    {
+        return Booking::query()->where('id', $bookingId)->delete();
     }
 }

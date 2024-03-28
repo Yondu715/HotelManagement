@@ -1,6 +1,6 @@
 import { createEffect, createStore, sample } from 'effector';
 import { AddBoocking, Booking } from './types';
-import { addBoockingQuery, getBookingsQuery } from '@/shared/api';
+import { addBoockingQuery, deleteBookingQuery, getBookingsQuery } from '@/shared/api';
 import { mapBookingList, mapToBack } from '../lib/mapBooking';
 
 export const $bookings = createStore<Booking[]>([]);
@@ -14,6 +14,10 @@ export const addBoockingFx = createEffect(async (addBoocking: AddBoocking) => {
     await addBoockingQuery(
         mapToBack(addBoocking)
     );
+});
+
+export const deleteBookingFx = createEffect(async (bookingId: number) => {
+    await deleteBookingQuery(bookingId);
 })
 
 sample({

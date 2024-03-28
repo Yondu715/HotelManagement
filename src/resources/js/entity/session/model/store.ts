@@ -1,15 +1,18 @@
 import { loginQuery } from '@/shared/api';
 import { createEffect, createStore, sample } from 'effector';
-import { LoginParams } from './types';
+import { LoginParams, User } from './types';
+import { mapUser } from '../lib/mapUser';
 
-export const $isAuth = createStore(false);
-
-export const loginFx = createEffect<LoginParams, void, string>(async (params: LoginParams) => {
-    await loginQuery(params.email, params.password);
+export const loginFx = createEffect<LoginParams, User, string>(async (params: LoginParams) => {
+    const response = await loginQuery(params.email, params.password);
+    return mapUser(response.user);
 });
 
+export const $user = createStore<User | null>(null);
+
 sample({
-    clock: loginFx.done,
-    fn: () => true,
-    target: $isAuth
-})
+    clock: loginFx.doneData,
+    target: $user
+});
+
+export const $isAuth = $user.map((user) => Boolean(user));

@@ -20,7 +20,6 @@ export const $isLoading = loginFx.pending;
 export const setEmail = createEvent<string>();
 export const setPassword = createEvent<string>();
 export const formSubmited = createEvent();
-export const errorAlertClosed = createEvent();
 
 sample({
     clock: setEmail,
@@ -55,12 +54,6 @@ sample({
 
 reset({
     clock: formSubmited,
-    target: $error
-});
-
-sample({
-    clock: errorAlertClosed,
-    fn: () => '',
     target: $error
 });
 

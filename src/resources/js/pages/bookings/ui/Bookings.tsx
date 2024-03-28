@@ -5,6 +5,7 @@ import { pageMounted } from '../model/store';
 import { bookingModel } from '@/entity/booking';
 import { Empty } from '@/shared/ui/empty';
 import styles from './Bookings.module.css';
+import { DeleteBooking } from '@/features/booking/delete-booking';
 
 export const BookingsPage: FC = () => {
     const bookings = useUnit(bookingModel.$bookings);
@@ -12,6 +13,11 @@ export const BookingsPage: FC = () => {
     useEffect(() => {
         pageMounted();
     }, []);
+
+    const checkDeleteAvailable = (checkIn: string) => {
+        const checkInDate = new Date(checkIn);
+        return new Date() < checkInDate;
+    }
 
     return (
         <div className={styles.page}>
@@ -41,6 +47,7 @@ export const BookingsPage: FC = () => {
                                     <td>{booking.checkIn}</td>
                                     <td>{booking.checkOut}</td>
                                     <td>{booking.price}</td>
+                                    <td>{<DeleteBooking bookingId={booking.id} checkIn={booking.checkIn} />}</td>
                                 </tr>
                             )
                         }
