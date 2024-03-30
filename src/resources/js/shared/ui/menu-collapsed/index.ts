@@ -1,1 +1,0 @@
-export { MenuCollapsed } from './MenuCollapsed';

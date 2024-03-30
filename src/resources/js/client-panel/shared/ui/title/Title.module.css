@@ -1,0 +1,19 @@
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    min-height: 50px;
+    height: 50px;
+}
+
+.title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 70%;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: var(--secondary-color);
+    margin-right: 0.5vw;
+}

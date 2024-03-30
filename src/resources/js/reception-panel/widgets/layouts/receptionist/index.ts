@@ -1,0 +1,1 @@
+export { ReceptionistLayout } from './ui/ReceptionistLayout';

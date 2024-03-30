@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.formGroup {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.actionButton {
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+}
+

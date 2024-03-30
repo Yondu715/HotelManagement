@@ -12,7 +12,7 @@
         "allowJs": false,
         "typeRoots": [
             "./node_modules/@types",
-            "./resources/js/vite-env.d.ts"
+            "./resources/js/vite-end.d.ts"
         ],
         "moduleResolution": "Bundler",
         "allowImportingTsExtensions": true,
@@ -30,12 +30,13 @@
         "baseUrl": ".",
         "paths": {
             "@/*": [
-                "./resources/js/*"
+                "./resources/js/reception-panel/*"
             ]
         }
     },
     "include": [
         "./resources/js",
+        "./resources/js/reception-panel",
     ],
     "exclude": [
         "node_modules"

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
+import path from 'path';
 
 export default defineConfig({
     server: {
@@ -12,13 +13,18 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/js/app/main.tsx',
+                'resources/js/reception-panel/app/main.tsx',
             ],
             refresh: true,
         }),
         react({
-            include: 'resources/js/**/*.tsx'
+            include: 'resources/js/reception-panel/**/*.tsx'
         }),
         checker({ typescript: true }),
-    ]
+    ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './resources/js/reception-panel'),
+        },
+    },
 });

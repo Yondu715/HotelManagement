@@ -3,53 +3,39 @@
 namespace App\Services;
 
 use App\DTO\GetRoomsDto;
+use App\Models\Booking;
 use App\Models\Room;
+use App\Models\Staying;
 use Illuminate\Database\Eloquent\Builder;
 
 class RoomService
 {
     public function getAvailableRooms(GetRoomsDto $getRoomsDto)
     {
-        $roomsWithoutBookingsAndStayings = Room::query()->whereDoesntHave('bookings')->whereDoesntHave('stayings');
 
-        $bookingsRoomsWithoutStayings = Room::query()->whereHas('bookings', function ($query) use ($getRoomsDto) {
-            $query->where(function (Builder $query) use ($getRoomsDto) {
-                $query->where('check_out', '<', $getRoomsDto->checkIn)
-                    ->where(function (Builder $query) use ($getRoomsDto) {
-                        $query->whereNotBetween('check_in', [$getRoomsDto->checkIn, $getRoomsDto->checkOut])
-                            ->orWhereNotBetween('check_out', [$getRoomsDto->checkIn, $getRoomsDto->checkOut]);
-                    });
-            });
-        })->whereDoesntHave('stayings');
+        $bookings = Booking::query()
+            ->where('check_in', '>', now())
+            ->where(function (Builder $query) use ($getRoomsDto) {
+                $query->whereNotBetween('check_in', [$getRoomsDto->checkIn, $getRoomsDto->checkOut])
+                    ->orWhereNotBetween('check_out', [$getRoomsDto->checkIn, $getRoomsDto->checkOut]);
+            })->get();
 
-        $roomsWithStayingsWithoutBookings = Room::query()->whereHas('stayings', function (Builder $query) {
-            $query->whereNotNull('check_out');
-        })->whereDoesntHave('bookings');
+        $stayings = Staying::query()->where([
+            'check_out' => null
+        ])->get();
 
-        $roomsWithBookingsAndStayings = Room::query()->whereHas('bookings', function ($query) use ($getRoomsDto) {
-            $query->where(function (Builder $query) use ($getRoomsDto) {
-                $query->where('check_out', '<', $getRoomsDto->checkIn)
-                    ->where(function (Builder $query) use ($getRoomsDto) {
-                        $query->whereNotBetween('check_in', [$getRoomsDto->checkIn, $getRoomsDto->checkOut])
-                            ->orWhereNotBetween('check_out', [$getRoomsDto->checkIn, $getRoomsDto->checkOut]);
-                    });
-            });
-        })->whereHas('stayings', function (Builder $query) {
-            $query->whereNotNull('check_out');
-        });
+        $reservations = $bookings->merge($stayings);
+        $reservationsIds = $reservations->pluck('room_id')->unique();
 
-        $filteredRooms = $roomsWithBookingsAndStayings->union($roomsWithoutBookingsAndStayings)
-            ->union($bookingsRoomsWithoutStayings)
-            ->union($roomsWithStayingsWithoutBookings)
-            ->get();
+        $availableRooms = Room::all()->whereNotIn('id', $reservationsIds);
 
         if ($getRoomsDto->capacity) {
-            $filteredRooms = $filteredRooms->where('capacity', $getRoomsDto->capacity);
+            $availableRooms = $availableRooms->where('capacity', $getRoomsDto->capacity);
         }
         if ($getRoomsDto->comfortLevel) {
-            $filteredRooms = $filteredRooms->where('comfort_level', $getRoomsDto->comfortLevel);
+            $availableRooms = $availableRooms->where('comfort_level', $getRoomsDto->comfortLevel);
         }
 
-        return $filteredRooms;
+        return $availableRooms;
     }
 }
