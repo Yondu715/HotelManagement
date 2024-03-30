@@ -10,8 +10,6 @@ export const routes = {
         login: `/${AUTH}/login`,
         register: `/${AUTH}/login`
     },
-    dashboard: `/dashboard`,
-    clients: `/clients`,
     stayings: `/stayings`,
     bookings: `/bookings`
 }

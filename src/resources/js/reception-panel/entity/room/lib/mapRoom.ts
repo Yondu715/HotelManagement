@@ -7,7 +7,7 @@ export const mapRoom = (room: RoomDTO): Room => {
         name: room.name,
         capacity: room.capacity,
         comfortLevel: room.comfortLevel,
-        image: room.image,
+        image: `/${room.image}`,
         price: room.price
     }
 };

@@ -1,6 +1,4 @@
 import { BookingsPage } from '@/pages/bookings';
-import { ClientsPage } from '@/pages/clients';
-import { DashboardPage } from '@/pages/dashboard';
 import { LoginPage } from '@/pages/login';
 import { RoomsPage } from '@/pages/rooms';
 import { StayingsPage } from '@/pages/stayings/ui/Stayings';
@@ -15,19 +13,11 @@ const router = createBrowserRouter([{
     children: [
         {
             path: routes.root,
-            element: <Navigate to={routes.dashboard} replace />
+            element: <Navigate to={routes.rooms} replace />
         },
         {
             path: routes.rooms,
             element: <RoomsPage />
-        },
-        {
-            path: routes.clients,
-            element: <ClientsPage />
-        },
-        {
-            path: routes.dashboard,
-            element: <DashboardPage />
         },
         {
             path: routes.stayings,
@@ -47,10 +37,7 @@ const router = createBrowserRouter([{
             element: <LoginPage />
         }
     ]
-}],
-    {
-        basename: '/client'
-    });
+}]);
 
 export const RouterProvider: FC = () => {
     return (

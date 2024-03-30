@@ -1,12 +1,5 @@
-.filter {
+.select {
     height: 50px;
     width: 196px !important;
-    background: transparent;
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
-    padding-left: 10%;
-}
-
-.filter option[disabled] {
-    display: none;
+    color: #000;
 }

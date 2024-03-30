@@ -18,19 +18,20 @@
 .dataContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     background-color: #fff;
     border-radius: 5px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 20px;
     height: 100%;
-    padding: var(--inside-padding);
 }
 
 .roomWrap {
     width: 32.3%;
     flex: 0 0 auto;
+    margin: 0.5%;
     padding: 0.5%;
-    margin-top: 0;
     height: fit-content;
     border-radius: 10px;
     border: 1px solid transparent;

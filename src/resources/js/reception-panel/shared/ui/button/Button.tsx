@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode } from 'react';
+import { FC, FormEventHandler, MouseEventHandler, ReactNode } from 'react';
 import { Button as Btn } from 'antd';
 import styles from './Button.module.css';
 
@@ -6,12 +6,20 @@ interface IButton {
     onClick?: MouseEventHandler<HTMLElement>,
     className?: string,
     loading?: boolean,
-    children?: ReactNode
+    children?: ReactNode,
+    onSubmit?: FormEventHandler,
+    type?: "button" | "submit"
 }
 
-export const Button: FC<IButton> = ({ children, onClick, className, loading = false}) => {
+export const Button: FC<IButton> = ({ children, onClick, className, loading = false, onSubmit, type }) => {
     return (
-        <Btn onClick={onClick} loading={loading} className={[styles.button, className].join(' ')}>
+        <Btn
+            htmlType={type ?? "button"}
+            onClick={onClick}
+            onSubmit={onSubmit}
+            loading={loading}
+            className={[styles.button, className].join(' ')}
+        >
             {children}
         </Btn>
     );

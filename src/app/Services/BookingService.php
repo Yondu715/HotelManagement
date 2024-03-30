@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\DTO\AddBoockingDto;
+use App\DTO\AddClientBookingDto;
 use App\Models\Booking;
 use App\Models\Client;
+use App\Models\ClientPassport;
 use App\Models\Room;
 use Carbon\Carbon;
 use Exception;
@@ -50,5 +52,37 @@ class BookingService
     public function deleteBooking(int $bookingId)
     {
         return Booking::query()->where('id', $bookingId)->delete();
+    }
+
+    public function createClientBooking(AddClientBookingDto $addClientBookingDto)
+    {
+        /** @var ?ClientPassport */
+        $passport = ClientPassport::query()->firstWhere([
+            'number' => $addClientBookingDto->passportNumber,
+            'series' => $addClientBookingDto->passportSeries
+        ]);
+
+        if (!$passport) {
+            /** @var Client */
+            $client = Client::query()->create([
+                'first_name' => $addClientBookingDto->firstName,
+                'last_name' => $addClientBookingDto->lastName,
+                'middle_name' => $addClientBookingDto->middleName
+            ]);
+
+            /** @var ClientPassport */
+            $passport = $client->passport()->create([
+                'number' => $addClientBookingDto->passportNumber,
+                'series' => $addClientBookingDto->passportSeries
+            ]);
+        }
+
+        $addBookingDto = new AddBoockingDto(
+            roomId: $addClientBookingDto->roomId,
+            clientId: $passport->client()->get()->id,
+            checkOut: $addClientBookingDto->checkOut,
+            checkIn: $addClientBookingDto->checkIn
+        );
+        return $this->createBoocking($addBookingDto);
     }
 }

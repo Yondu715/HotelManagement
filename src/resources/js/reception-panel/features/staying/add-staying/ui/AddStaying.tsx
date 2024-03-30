@@ -6,9 +6,11 @@ import { $clientId, $note, formSubmitted, setClientId, setNote } from '../model/
 import { clientModel } from '@/entity/client';
 import { Input } from '@/shared/ui/input';
 import styles from './AddStaying.module.css';
+import { Select } from '@/shared/ui/select';
 
 export const AddStaying = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     const {
         note, clients
     } = useUnit({
@@ -38,28 +40,22 @@ export const AddStaying = () => {
             <Modal title="Заселение" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form className={styles.form}>
                     <div className={styles.formGroup}>
+                        <Select
+                            onChange={(value) => setClientId(value as number)}
+                            placeholder={'Выберите клиента'}
+                            options={clients.map((client) => ({
+                                key: client.id,
+                                label: `${client.id} ${client.firstName}`
+                            }))}
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
                         <Input
                             placeholder='Замечание'
                             type='text'
                             value={note}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setNote(e.target.value)}
                         />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <select defaultValue={''}>
-                            <option value={''} disabled>Выберите клиента</option>
-                            {
-                                clients.map((client) =>
-                                    <option
-                                        key={client.id}
-                                        value={client.id}
-                                        onClick={() => setClientId(client.id)}
-                                    >
-                                        {`${client.id} ${client.firstName}`}
-                                    </option>
-                                )
-                            }
-                        </select>
                     </div>
                 </form>
             </Modal>

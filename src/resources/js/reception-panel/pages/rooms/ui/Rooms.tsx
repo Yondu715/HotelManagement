@@ -22,15 +22,15 @@ export const RoomsPage = () => {
                 <Select
                     options={[
                         {
-                            key: OrderRoomType.STAY,
-                            value: 'Заселение'
+                            value: OrderRoomType.STAY,
+                            label: 'Заселение'
                         }, {
-                            key: OrderRoomType.BOOK,
-                            value: 'Бронирование'
+                            value: OrderRoomType.BOOK,
+                            label: 'Бронирование'
                         }
                     ]}
-                    onChange={(e) => roomModel.setType(e.target.value as OrderRoomType)}
-                    active={type}
+                    onChange={(value) => roomModel.setType(value as OrderRoomType)}
+                    value={type}
                 />
             </div>
             <RoomFilters />

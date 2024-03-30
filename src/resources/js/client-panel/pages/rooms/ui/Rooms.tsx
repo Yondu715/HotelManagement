@@ -20,17 +20,17 @@ export const RoomsPage = () => {
             <div className={styles.titleContainer}>
                 <Title text='Номера' />
                 <Select
+                    defaultValue={'Заселение'}
                     options={[
                         {
-                            key: OrderRoomType.STAY,
-                            value: 'Заселение'
+                            label: 'Заселение',
+                            value: OrderRoomType.STAY
                         }, {
-                            key: OrderRoomType.BOOK,
-                            value: 'Бронирование'
+                            label: 'Бронирование',
+                            value: OrderRoomType.BOOK
                         }
                     ]}
-                    onChange={(e) => roomModel.setType(e.target.value as OrderRoomType)}
-                    active={type}
+                    onChange={(value) => roomModel.setType(value as OrderRoomType)}
                 />
             </div>
             <RoomFilters />

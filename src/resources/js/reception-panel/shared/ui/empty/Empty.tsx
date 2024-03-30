@@ -5,7 +5,7 @@ import styles from './Empty.module.css';
 export const Empty: FC = () => {
     return (
         <div className={styles.empty}>
-            <Emt description="Нет данных("/>
+            <Emt description="Нет данных"/>
         </div>
     );
 };

@@ -3,7 +3,8 @@
     align-items: flex-end;
     justify-content: center;
     gap: 2vw;
-    padding-bottom: 20px;
+    width: 75%;
+    margin: 0 auto;
 }
 
 .searchButton {

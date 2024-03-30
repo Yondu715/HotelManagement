@@ -11,7 +11,7 @@
 .main {
     display: flex;
     gap: 1vw;
-    height: 100%;
+    height: calc(100% - 80px - var(--inside-padding));
 }
 
 .layout .sidebarContainer {

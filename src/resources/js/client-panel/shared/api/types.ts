@@ -64,15 +64,6 @@ export type PassportDTO = {
     series: number
 }
 
-export type AddClientDTO = {
-    firstName: string,
-    middleName: string,
-    lastName: string,
-    number: string,
-    series: string
-    comment: string
-}
-
 export type GetRoomsParams = {
     capacity?: string | null,
     comfortLevel?: string | null,
@@ -84,26 +75,9 @@ export type TokenDto = {
     token: string
 }
 
-export type AddStayingDTO = {
-    clientId: number,
-    roomId: number,
-    note: string
-}
-
 export type AddBoockingDTO = {
     checkIn: string,
     checkOut: string,
     clientId: number,
     roomId: number
-}
-
-export type MonthlyPriceStatistic = {
-    month: string,
-    price: number
-}
-
-export type StatisticDTO = {
-    clientsCount: number,
-    bookingStatistic: MonthlyPriceStatistic[],
-    stayingStatistic: MonthlyPriceStatistic[]
 }
