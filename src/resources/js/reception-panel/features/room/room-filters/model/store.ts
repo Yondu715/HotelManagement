@@ -1,4 +1,4 @@
-import { roomFilterModel, roomModel } from '@/entity/room';
+import { roomFilterModel, roomModel } from '@/reception/entity/room';
 import { attach, createEvent, sample } from 'effector';
 
 const getStayingRoomsFx = attach({

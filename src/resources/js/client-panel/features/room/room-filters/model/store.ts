@@ -1,4 +1,4 @@
-import { roomFilterModel, roomModel } from '@/entity/room';
+import { roomFilterModel, roomModel } from '@/client/entity/room';
 import { attach, createEvent, sample } from 'effector';
 
 const getStayingRoomsFx = attach({
@@ -14,7 +14,6 @@ sample({
         comfortLevel: roomFilterModel.$comfortLevel,
         checkIn: roomFilterModel.$checkInDate,
         checkOut: roomFilterModel.$checkOutDate,
-        roomOrderType: roomModel.$type
     },
     fn: ({ capacity, comfortLevel, checkIn, checkOut }) => ({
         capacity,

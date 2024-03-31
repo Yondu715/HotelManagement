@@ -1,6 +1,6 @@
 import { createEffect, createStore, sample } from 'effector';
 import { AddStaying, Staying } from './types';
-import { addStayingQuery, getStayingsQuery } from '@/shared/api';
+import { addStayingQuery, getStayingsQuery } from '@/reception/shared/api';
 import { mapAddStaying, mapStayingList } from '../lib/mapStaying';
 
 export const getStayingsFx = createEffect(async () => {

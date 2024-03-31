@@ -1,5 +1,14 @@
+import { Header } from '@/client/widgets/header';
+import { Outlet } from 'react-router-dom';
+import styles from './ClientLayout.module.css';
+
 export const ClientLayout = () => {
     return (
-        <div>client</div>
+        <>
+            <Header />
+            <div className={styles.pageContainer}>
+                <Outlet />
+            </div>
+        </>
     );
 };

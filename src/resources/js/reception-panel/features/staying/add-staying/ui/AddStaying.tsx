@@ -1,12 +1,12 @@
-import { Button } from '@/shared/ui/button';
-import { Modal } from '@/shared/ui/modal';
+import { Button } from '@/reception/shared/ui/button';
+import { Modal } from '@/reception/shared/ui/modal';
 import { useUnit } from 'effector-react';
 import { ChangeEvent, useState } from 'react';
 import { $clientId, $note, formSubmitted, setClientId, setNote } from '../model/store';
-import { clientModel } from '@/entity/client';
-import { Input } from '@/shared/ui/input';
+import { clientModel } from '@/reception/entity/client';
+import { Input } from '@/reception/shared/ui/input';
 import styles from './AddStaying.module.css';
-import { Select } from '@/shared/ui/select';
+import { Select } from '@/reception/shared/ui/select';
 
 export const AddStaying = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);

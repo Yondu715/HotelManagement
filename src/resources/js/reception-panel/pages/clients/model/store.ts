@@ -1,4 +1,4 @@
-import { clientModel } from '@/entity/client';
+import { clientModel } from '@/reception/entity/client';
 import { attach, createEvent, sample } from 'effector';
 
 const getClientsFx = attach({

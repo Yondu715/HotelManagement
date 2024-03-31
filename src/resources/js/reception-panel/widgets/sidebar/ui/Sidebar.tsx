@@ -1,7 +1,7 @@
-import { routes } from '@/shared/routing';
+import { routes } from '@/reception/shared/routing';
 import { CustomLink } from './custom-link/CustomLink';
 import styles from './Sidebar.module.css';
-import { IconDashboard, IconClient, IconRoom, IconBooking, IconStaying } from '@/shared/ui/icons';
+import { IconDashboard, IconClient, IconRoom, IconBooking, IconStaying } from '@/reception/shared/ui/icons';
 
 export const Sidebar = () => {
     return (

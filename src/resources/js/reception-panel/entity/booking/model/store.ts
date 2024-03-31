@@ -1,7 +1,7 @@
 import { createEffect, createStore, sample } from 'effector';
 import { AddBoocking, Booking } from './types';
-import { addBoockingQuery, deleteBookingQuery, getBookingsQuery } from '@/shared/api';
 import { mapBookingList, mapToBack } from '../lib/mapBooking';
+import { addBoockingQuery, deleteBookingQuery, getBookingsQuery } from '@/reception/shared/api';
 
 export const $bookings = createStore<Booking[]>([]);
 

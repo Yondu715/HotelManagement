@@ -1,15 +1,13 @@
-import { BookingsPage } from '@/pages/bookings';
-import { LoginPage } from '@/pages/login';
-import { RoomsPage } from '@/pages/rooms';
-import { StayingsPage } from '@/pages/stayings/ui/Stayings';
-import { routes } from '@/shared/routing';
-import { AuthLayout } from '@/widgets/layouts/auth';
-import { ReceptionistLayout } from '@/widgets/layouts/receptionist';
 import { FC } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider as RP } from 'react-router-dom';
+import { routes } from '@/client/shared/routing';
+import { ClientLayout } from '@/client/widgets/layouts/client';
+import { AuthLayout } from '@/client/widgets/layouts/auth';
+import { LoginPage } from '@/client/pages/auth';
+import { RoomsPage } from '@/client/pages/rooms';
 
 const router = createBrowserRouter([{
-    element: <ReceptionistLayout />,
+    element: <ClientLayout />,
     children: [
         {
             path: routes.root,
@@ -18,14 +16,6 @@ const router = createBrowserRouter([{
         {
             path: routes.rooms,
             element: <RoomsPage />
-        },
-        {
-            path: routes.stayings,
-            element: <StayingsPage />
-        },
-        {
-            path: routes.bookings,
-            element: <BookingsPage />
         }
     ]
 },

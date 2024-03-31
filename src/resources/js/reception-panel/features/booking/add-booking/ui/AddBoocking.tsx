@@ -1,9 +1,9 @@
-import { Button } from '@/shared/ui/button';
-import { Modal } from '@/shared/ui/modal';
+import { Button } from '@/reception/shared/ui/button';
+import { Modal } from '@/reception/shared/ui/modal';
 import { useUnit } from 'effector-react';
 import { useState } from 'react';
 import { $clientId, formSubmitted, setClientId } from '../model/store';
-import { clientModel } from '@/entity/client';
+import { clientModel } from '@/reception/entity/client';
 import styles from './AddBoocking.module.css';
 
 export const AddBoocking = () => {

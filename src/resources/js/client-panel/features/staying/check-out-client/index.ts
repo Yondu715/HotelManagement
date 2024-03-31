@@ -1,1 +1,0 @@
-export * as checkOutModel from './model/store';

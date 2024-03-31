@@ -1,5 +1,5 @@
-import { stayingModel } from '@/entity/staying';
-import { checkOutClientQuery } from '@/shared/api';
+import { stayingModel } from '@/reception/entity/staying';
+import { checkOutClientQuery } from '@/reception/shared/api';
 import { createEffect, createEvent, sample } from 'effector';
 
 const checkOutClientFx = createEffect(async (stayingId: number) => {

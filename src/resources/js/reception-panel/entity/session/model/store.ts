@@ -1,4 +1,4 @@
-import { loginQuery } from '@/shared/api';
+import { loginQuery } from '@/reception/shared/api';
 import { createEffect, createStore, sample } from 'effector';
 import { LoginParams, Receptionist } from './types';
 import { mapUser } from '../lib/mapUser';

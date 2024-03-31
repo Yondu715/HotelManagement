@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import styles from './AuthLayout.module.css';
-import { setNavigate } from '@/shared/routing/routes';
+import { setNavigate } from '@/reception/shared/routing/routes';
 
 export const AuthLayout: FC = () => {
     const navigate = useNavigate();

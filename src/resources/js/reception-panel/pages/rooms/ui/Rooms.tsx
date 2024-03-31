@@ -1,14 +1,14 @@
-import { RoomFilters } from '@/features/room/room-filters';
+import { RoomFilters } from '@/reception/features/room/room-filters';
 import styles from './Rooms.module.css';
-import { Title } from '@/shared/ui/title';
+import { Title } from '@/reception/shared/ui/title';
 import { useUnit } from 'effector-react';
-import { RoomCard, roomModel } from '@/entity/room';
-import { Empty } from '@/shared/ui/empty';
-import { setSelectedRoomId } from '@/entity/room/model/store';
-import { Select } from '@/shared/ui/select';
-import { OrderRoomType } from '@/entity/room/model/types';
-import { AddStaying } from '@/features/staying/add-staying';
-import { AddBoocking } from '@/features/booking/add-booking';
+import { RoomCard, roomModel } from '@/reception/entity/room';
+import { Empty } from '@/reception/shared/ui/empty';
+import { setSelectedRoomId } from '@/reception/entity/room/model/store';
+import { Select } from '@/reception/shared/ui/select';
+import { OrderRoomType } from '@/reception/entity/room/model/types';
+import { AddStaying } from '@/reception/features/staying/add-staying';
+import { AddBoocking } from '@/reception/features/booking/add-booking';
 
 export const RoomsPage = () => {
     const rooms = useUnit(roomModel.$rooms);

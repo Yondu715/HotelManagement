@@ -1,6 +1,6 @@
-import { mapRoom } from '@/entity/room/lib/mapRoom';
-import { mapClient } from '@/entity/client/lib/mapClient';
-import { AddBoockingDTO, BookingDTO } from '@/shared/api/types';
+import { mapRoom } from '@/reception/entity/room/lib/mapRoom';
+import { mapClient } from '@/reception/entity/client/lib/mapClient';
+import { AddBoockingDTO, BookingDTO } from '@/reception/shared/api/types';
 import { AddBoocking, Booking } from '../model/types';
 
 export const mapBooking = (booking: BookingDTO): Booking => {

@@ -1,34 +1,15 @@
-import { ChangeEvent, FC } from 'react';
+import { FC } from 'react';
+import { SelectProps, Select as Slct } from 'antd';
 import styles from './Select.module.css';
 
-type Option = {
-    key: string,
-    value: string
+export type Option = {
+    label: string | number,
+    value: string | number
 }
 
-interface ISelectFilter {
-    active?: string
-    placeholder?: string,
-    options?: Option[],
-    onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
-}
 
-export const Select: FC<ISelectFilter> = ({ placeholder, options, onChange, active }) => {
+export const Select: FC<SelectProps> = (props) => {
     return (
-        <div>
-            <select defaultValue={options?.find((option) => option.value === active) ? active : ''} className={styles.filter} onChange={onChange}>
-                {
-                    placeholder &&
-                    <option value={''} disabled>{placeholder}</option>
-                }
-                {
-                    options?.map((option, idx) =>
-                        <option key={idx} value={option.key}>
-                            {option.value}
-                        </option>
-                    )
-                }
-            </select>
-        </div>
+        <Slct className={styles.select} {...props} />
     );
 };

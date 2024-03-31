@@ -1,1 +1,0 @@
-export * as stayingModel from './model/store';

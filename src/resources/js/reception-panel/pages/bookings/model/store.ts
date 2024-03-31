@@ -1,4 +1,4 @@
-import { bookingModel } from '@/entity/booking';
+import { bookingModel } from '@/reception/entity/booking';
 import { attach, createEvent, createStore, sample } from 'effector';
 
 const getBookingsFx = attach({

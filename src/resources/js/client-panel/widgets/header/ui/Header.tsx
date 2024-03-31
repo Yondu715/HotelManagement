@@ -1,9 +1,6 @@
-import { useUnit } from 'effector-react';
-import { sessionModel } from '@/entity/session';
 import styles from './Header.module.css';
 
 export const Header = () => {
-    const user = useUnit(sessionModel.$user);
 
     return (
         <div className={styles.header}>
@@ -11,12 +8,7 @@ export const Header = () => {
                 Sunset Resort
             </div>
             <div className={styles.userInfo}>
-                <span className={styles.name}>
-                    {user?.name}
-                </span>
-                <span className={styles.email}>
-                    {user?.email}
-                </span>
+                123
             </div>
         </div>
     );

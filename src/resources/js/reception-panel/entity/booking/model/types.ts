@@ -1,5 +1,5 @@
-import { Client } from '@/entity/client/model/types'
-import { Room } from '@/entity/room/model/types'
+import { Client } from '@/reception/entity/client/model/types'
+import { Room } from '@/reception/entity/room/model/types'
 
 export type Booking = {
     id: number,

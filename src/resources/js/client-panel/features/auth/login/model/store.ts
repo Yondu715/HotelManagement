@@ -1,5 +1,6 @@
-import { sessionModel } from '@/entity/session';
-import { $navigate, routes } from '@/shared/routing/routes';
+import { sessionModel } from '@/client/entity/session';
+import { routes } from '@/client/shared/routing';
+import { $navigate } from '@/client/shared/routing/routes';
 import { attach, createEvent, createStore, sample } from 'effector';
 import { reset } from 'patronum';
 
@@ -42,7 +43,7 @@ sample({
         navigate: $navigate
     },
     fn: ({ navigate }) => {
-        navigate?.(routes.dashboard);
+        navigate?.(routes.rooms);
     }
 });
 

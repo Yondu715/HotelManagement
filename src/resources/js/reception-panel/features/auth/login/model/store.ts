@@ -1,5 +1,5 @@
-import { sessionModel } from '@/entity/session';
-import { $navigate, routes } from '@/shared/routing/routes';
+import { sessionModel } from '@/reception/entity/session';
+import { $navigate, routes } from '@/reception/shared/routing/routes';
 import { attach, createEvent, createStore, sample } from 'effector';
 import { reset } from 'patronum';
 

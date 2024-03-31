@@ -1,4 +1,4 @@
-import { StatisticDTO } from '@/shared/api/types';
+import { StatisticDTO } from '@/reception/shared/api/types';
 import { Statistic } from '../model/types';
 
 export const mapStatistic = (statistic: StatisticDTO): Statistic => {

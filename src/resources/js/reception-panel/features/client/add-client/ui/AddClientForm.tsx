@@ -6,12 +6,12 @@ import {
     setFirstName, setLastName, setMiddleName,
     setNumber, setSeries
 } from '../model/store';
-import { Button } from '@/shared/ui/button';
-import { ErrorBlock } from '@/shared/ui/error';
+import { Button } from '@/reception/shared/ui/button';
+import { ErrorBlock } from '@/reception/shared/ui/error';
 import { ChangeEvent, MouseEvent, useState } from 'react';
-import { Modal } from '@/shared/ui/modal';
-import { IconAddUser } from '@/shared/ui/icons';
-import { Input } from '@/shared/ui/input';
+import { Modal } from '@/reception/shared/ui/modal';
+import { IconAddUser } from '@/reception/shared/ui/icons';
+import { Input } from '@/reception/shared/ui/input';
 import styles from './AddClientForm.module.css';
 
 export const AddClientForm = () => {

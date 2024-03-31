@@ -1,4 +1,4 @@
-import { RoomDTO } from '@/shared/api/types';
+import { RoomDTO } from '@/reception/shared/api/types';
 import { Room } from '../model/types';
 
 export const mapRoom = (room: RoomDTO): Room => {

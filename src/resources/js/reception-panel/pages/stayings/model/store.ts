@@ -1,4 +1,4 @@
-import { stayingModel } from '@/entity/staying';
+import { stayingModel } from '@/reception/entity/staying';
 import { attach, createEvent, createStore, sample } from 'effector';
 
 const getStayingsFx = attach({

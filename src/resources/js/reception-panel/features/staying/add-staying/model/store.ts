@@ -1,5 +1,5 @@
-import { roomModel } from '@/entity/room';
-import { stayingModel } from '@/entity/staying';
+import { roomModel } from '@/reception/entity/room';
+import { stayingModel } from '@/reception/entity/staying';
 import { attach, combine, createEvent, createStore, sample } from 'effector';
 
 export const $note = createStore('');

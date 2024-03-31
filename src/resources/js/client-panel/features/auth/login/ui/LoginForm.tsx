@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, MouseEvent } from 'react';
 import { useUnit } from 'effector-react';
 import { $email, $error, $isLoading, $password, formSubmited, setEmail, setPassword } from '../model/store';
-import { Button } from '@/shared/ui/button';
-import { ErrorBlock } from '@/shared/ui/error';
-import { Input } from '@/shared/ui/input';
+import { Button } from '@/reception/shared/ui/button';
+import { ErrorBlock } from '@/reception/shared/ui/error';
+import { Input } from '@/reception/shared/ui/input';
 import styles from './LoginForm.module.css';
 
 export const LoginForm: FC = () => {

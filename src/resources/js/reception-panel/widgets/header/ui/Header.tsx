@@ -1,5 +1,5 @@
 import { useUnit } from 'effector-react';
-import { sessionModel } from '@/entity/session';
+import { sessionModel } from '@/reception/entity/session';
 import styles from './Header.module.css';
 
 export const Header = () => {

@@ -29,8 +29,11 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": [
+            "@/reception/*": [
                 "./resources/js/reception-panel/*"
+            ],
+            "@/client/*": [
+                "./resources/js/client-panel/*"
             ]
         }
     },

@@ -1,7 +1,7 @@
-import { loginQuery } from '@/shared/api';
 import { createEffect, createStore, sample } from 'effector';
 import { LoginParams, Receptionist } from './types';
 import { mapUser } from '../lib/mapUser';
+import { loginQuery } from '@/client/shared/api';
 
 export const loginFx = createEffect<LoginParams, Receptionist, string>(async (params: LoginParams) => {
     const response = await loginQuery(params.email, params.password);

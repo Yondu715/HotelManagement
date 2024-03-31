@@ -1,11 +1,11 @@
 import { $isLoading, searchStarted } from '../model/store';
 import { ChangeEvent, FC } from 'react';
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/reception/shared/ui/button';
 import { useUnit } from 'effector-react';
-import { roomFilterModel, roomModel } from '@/entity/room';
+import { roomFilterModel, roomModel } from '@/reception/entity/room';
 import styles from './RoomFilters.module.css';
-import { DateInput } from '@/shared/ui/date-input';
-import { Select } from '@/shared/ui/select';
+import { DateInput } from '@/reception/shared/ui/date-input';
+import { Select } from '@/reception/shared/ui/select';
 
 const capacity = [
     {

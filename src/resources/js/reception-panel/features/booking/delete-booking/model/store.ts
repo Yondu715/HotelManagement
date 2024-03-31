@@ -1,4 +1,4 @@
-import { bookingModel } from '@/entity/booking';
+import { bookingModel } from '@/reception/entity/booking';
 import { attach, createEvent, sample } from 'effector';
 
 export const deleteBookingFx = attach({

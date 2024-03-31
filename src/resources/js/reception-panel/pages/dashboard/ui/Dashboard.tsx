@@ -1,10 +1,10 @@
 
-import { Title } from '@/shared/ui/title';
+import { Title } from '@/reception/shared/ui/title';
 import styles from './Dashboard.module.css';
 import { useEffect } from 'react';
 import { pageMounted } from '../model/store';
 import { useUnit } from 'effector-react';
-import { statisticModel } from '@/entity/statistic';
+import { statisticModel } from '@/reception/entity/statistic';
 import { CountClients } from './CountClients/CountClients';
 import { MonthlyChart } from './MonthlyChart/MonthlyChart';
 

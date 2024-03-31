@@ -1,9 +1,9 @@
-import { Sidebar } from '@/widgets/sidebar';
+import { Sidebar } from '@/reception/widgets/sidebar';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { setNavigate } from '@/shared/routing/routes';
+import { setNavigate } from '@/reception/shared/routing/routes';
 import { layoutMounted } from '../model/store';
-import { Header } from '@/widgets/header';
+import { Header } from '@/reception/widgets/header';
 import styles from './ReceptionistLayout.module.css';
 
 export const ReceptionistLayout = () => {

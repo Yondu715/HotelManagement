@@ -1,6 +1,6 @@
-import { bookingModel } from '@/entity/booking';
-import { clientModel } from '@/entity/client';
-import { stayingModel } from '@/entity/staying';
+import { bookingModel } from '@/reception/entity/booking';
+import { clientModel } from '@/reception/entity/client';
+import { stayingModel } from '@/reception/entity/staying';
 import { attach, createEvent, sample } from 'effector';
 
 export const getClientsFx = attach({

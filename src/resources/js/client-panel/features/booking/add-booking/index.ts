@@ -1,1 +1,1 @@
-export { AddBoocking } from './ui/AddBoocking';
+export {} from './ui';

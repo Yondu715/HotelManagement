@@ -1,4 +1,4 @@
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/reception/shared/ui/button';
 import { FC, useEffect, useState } from 'react';
 import { bookingDeleted } from '../model/store';
 import { checkDeleteAvailable } from '../lib/checkDelete';

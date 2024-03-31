@@ -1,4 +1,4 @@
-import { getAvailableRoomsQuery } from '@/shared/api';
+import { getAvailableRoomsQuery } from '@/reception/shared/api';
 import { createEffect, createEvent, createStore, sample } from 'effector';
 import { GetRoomsParams, OrderRoomType, Room } from './types';
 import { mapRoomList } from '../lib/mapRoom';

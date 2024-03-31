@@ -1,10 +1,10 @@
-import { Title } from '@/shared/ui/title';
+import { Title } from '@/reception/shared/ui/title';
 import { useUnit } from 'effector-react';
 import { FC, useEffect } from 'react';
 import { pageMounted } from '../model/store';
-import { bookingModel } from '@/entity/booking';
-import { Empty } from '@/shared/ui/empty';
-import { DeleteBooking } from '@/features/booking/delete-booking';
+import { bookingModel } from '@/reception/entity/booking';
+import { Empty } from '@/reception/shared/ui/empty';
+import { DeleteBooking } from '@/reception/features/booking/delete-booking';
 import styles from './Bookings.module.css';
 
 export const BookingsPage: FC = () => {

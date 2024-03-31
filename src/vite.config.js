@@ -24,7 +24,8 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './resources/js/reception-panel'),
-        },
+            '@/client': path.resolve(__dirname, './resources/js/client-panel'),
+            '@/reception': path.resolve(__dirname, './resources/js/reception-panel'),
+        }
     },
 });

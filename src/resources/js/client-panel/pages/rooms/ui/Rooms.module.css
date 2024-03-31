@@ -2,41 +2,79 @@
     height: 100%;
     width: 100%;
     background-color: var(--light-white);
-    border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
-    padding: 1rem;
 }
 
-.titleContainer {
+.background {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    margin-bottom: 5vh;
+    height: 60vh;
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.overlay {
+    content: '';
+    position: absolute;
+    height: 60vh;
+    width: 100%;
+    opacity: .5;
+    background: #5a5a5a9a;
+    z-index: -1;
+}
+
+.title {
+    font-size: 50px;
+    color: #fff;
+}
+
+.headerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+    align-items: center;
+    height: 60%;
+    width: 100%;
 }
 
 .dataContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: var(--inside-padding);
+}
+
+.active {
+    border: 1px solid var(--primary-color);
+}
+
+.roomsContainer {
     display: flex;
     flex-wrap: wrap;
-    background-color: #fff;
+    justify-content: space-between;
     border-radius: 5px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 20px;
     height: 100%;
-    padding: var(--inside-padding);
 }
 
 .roomWrap {
     width: 32.3%;
     flex: 0 0 auto;
+    margin: 0.5%;
     padding: 0.5%;
-    margin-top: 0;
     height: fit-content;
     border-radius: 10px;
     border: 1px solid transparent;
     transition: all .3s;
-}
-
-.active {
-    border: 1px solid var(--primary-color);
 }

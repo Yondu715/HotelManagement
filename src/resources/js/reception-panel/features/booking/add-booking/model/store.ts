@@ -1,5 +1,5 @@
-import { bookingModel } from '@/entity/booking';
-import { roomFilterModel, roomModel } from '@/entity/room';
+import { bookingModel } from '@/reception/entity/booking';
+import { roomFilterModel, roomModel } from '@/reception/entity/room';
 import { attach, combine, createEvent, createStore, sample } from 'effector';
 
 export const $clientId = createStore<number | null>(null);

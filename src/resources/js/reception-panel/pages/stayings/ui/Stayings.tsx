@@ -1,11 +1,11 @@
-import { stayingModel } from '@/entity/staying';
-import { Title } from '@/shared/ui/title';
+import { stayingModel } from '@/reception/entity/staying';
+import { Title } from '@/reception/shared/ui/title';
 import { useUnit } from 'effector-react';
 import { FC, useEffect } from 'react';
 import { pageMounted } from '../model/store';
-import { checkOutModel } from '@/features/staying/check-out-client';
-import { Button } from '@/shared/ui/button';
-import { Empty } from '@/shared/ui/empty';
+import { checkOutModel } from '@/reception/features/staying/check-out-client';
+import { Button } from '@/reception/shared/ui/button';
+import { Empty } from '@/reception/shared/ui/empty';
 import styles from './Stayings.module.css';
 
 export const StayingsPage: FC = () => {

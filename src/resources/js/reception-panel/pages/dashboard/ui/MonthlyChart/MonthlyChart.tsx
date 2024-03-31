@@ -1,5 +1,5 @@
-import { MonthlyPriceStatistic } from '@/entity/statistic/model/types';
-import { Chart } from '@/shared/ui/chart';
+import { MonthlyPriceStatistic } from '@/reception/entity/statistic/model/types';
+import { Chart } from '@/reception/shared/ui/chart';
 import { FC } from 'react';
 import styles from './MonthlyChart.module.css';
 

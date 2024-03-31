@@ -1,6 +1,6 @@
 import { createEffect, createStore, sample } from 'effector';
 import { Statistic } from './types';
-import { getStatisticQuery } from '@/shared/api';
+import { getStatisticQuery } from '@/reception/shared/api';
 import { mapStatistic } from '../lib/mapStatistic';
 
 export const getStatisticFx = createEffect(async () => {

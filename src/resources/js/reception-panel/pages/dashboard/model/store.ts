@@ -1,4 +1,4 @@
-import { statisticModel } from '@/entity/statistic';
+import { statisticModel } from '@/reception/entity/statistic';
 import { attach, createEvent, sample } from 'effector';
 
 const getStatisticFx = attach({

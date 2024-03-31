@@ -1,4 +1,4 @@
-import { AddClientDTO, ClientDTO, PassportDTO } from '@/shared/api/types';
+import { AddClientDTO, ClientDTO, PassportDTO } from '@/reception/shared/api/types';
 import { AddClient, Client, Passport } from '../model/types';
 
 export const mapClient = (client: ClientDTO): Client => {

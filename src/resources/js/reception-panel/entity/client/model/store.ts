@@ -1,4 +1,4 @@
-import { addClientQuery, getClientsQuery } from '@/shared/api';
+import { addClientQuery, getClientsQuery } from '@/reception/shared/api';
 import { createEffect, createStore, sample } from 'effector';
 import { mapClientList, mapClientToBack } from '../lib/mapClient';
 import { AddClient, Client } from './types';

@@ -1,7 +1,7 @@
-import { AddStayingDTO, StayingDTO } from '@/shared/api/types';
+import { AddStayingDTO, StayingDTO } from '@/reception/shared/api/types';
 import { AddStaying, Staying } from '../model/types';
-import { mapRoom } from '@/entity/room/lib/mapRoom';
-import { mapClient } from '@/entity/client/lib/mapClient';
+import { mapRoom } from '@/reception/entity/room/lib/mapRoom';
+import { mapClient } from '@/reception/entity/client/lib/mapClient';
 
 export const mapStaying = (staying: StayingDTO): Staying => {
     return {

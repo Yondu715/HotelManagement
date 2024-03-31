@@ -1,4 +1,4 @@
-import { clientModel } from '@/entity/client';
+import { clientModel } from '@/reception/entity/client';
 import { attach, combine, createEvent, createStore, sample } from 'effector';
 import { reset } from 'patronum';
 

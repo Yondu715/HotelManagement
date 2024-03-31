@@ -1,12 +1,12 @@
-import { BookingsPage } from '@/pages/bookings';
-import { ClientsPage } from '@/pages/clients';
-import { DashboardPage } from '@/pages/dashboard';
-import { LoginPage } from '@/pages/login';
-import { RoomsPage } from '@/pages/rooms';
-import { StayingsPage } from '@/pages/stayings/ui/Stayings';
-import { routes } from '@/shared/routing';
-import { AuthLayout } from '@/widgets/layouts/auth';
-import { ReceptionistLayout } from '@/widgets/layouts/receptionist';
+import { BookingsPage } from '@/reception/pages/bookings';
+import { ClientsPage } from '@/reception/pages/clients';
+import { DashboardPage } from '@/reception/pages/dashboard';
+import { LoginPage } from '@/reception/pages/login';
+import { RoomsPage } from '@/reception/pages/rooms';
+import { StayingsPage } from '@/reception/pages/stayings/ui/Stayings';
+import { routes } from '@/reception/shared/routing';
+import { AuthLayout } from '@/reception/widgets/layouts/auth';
+import { ReceptionistLayout } from '@/reception/widgets/layouts/receptionist';
 import { FC } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider as RP } from 'react-router-dom';
 
