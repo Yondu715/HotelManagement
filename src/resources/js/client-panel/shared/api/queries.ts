@@ -2,8 +2,8 @@ import { AxiosError } from 'axios';
 import { axiosInstance } from './core/instance';
 import { setToken } from './token/core';
 import {
-    AddBoockingDTO,
-    ApiException, AuthInfoDto, BookingDTO, GetRoomsParams, ResponseWrap,
+    ApiException, AuthInfoDto,
+    BookingDTO, GetRoomsParams, ResponseWrap,
     RoomDTO, StayingDTO
 } from './types';
 
@@ -14,7 +14,7 @@ export const getAvailableRoomsQuery = async (params?: GetRoomsParams) => {
     return response.data;
 };
 
-export const addBoockingQuery = async (data: AddBoockingDTO) => {
+export const addBoockingQuery = async (data: unknown) => {
     try {
         const response = await axiosInstance.post('/bookings', data);
         return response;

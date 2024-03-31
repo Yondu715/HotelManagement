@@ -4,10 +4,10 @@ import styles from './RoomCard.module.css';
 
 interface IRoomCard {
     room: Room,
-    stayAction?: ReactNode
+    bookAction?: ReactNode
 }
 
-export const RoomCard: FC<IRoomCard> = ({ room, stayAction }) => {
+export const RoomCard: FC<IRoomCard> = ({ room, bookAction }) => {
     const { name, capacity, comfortLevel, image, price } = room;
     return (
         <div className={styles.roomCard}>
@@ -20,7 +20,7 @@ export const RoomCard: FC<IRoomCard> = ({ room, stayAction }) => {
                     <div className="text">
                         Цена: <span>{price} ₽</span>
                     </div>
-                    {stayAction}
+                    {bookAction}
                 </div>
             </div>
         </div>

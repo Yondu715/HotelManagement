@@ -61,7 +61,6 @@ class BookingService
             'number' => $addClientBookingDto->passportNumber,
             'series' => $addClientBookingDto->passportSeries
         ]);
-
         if (!$passport) {
             /** @var Client */
             $client = Client::query()->create([
@@ -76,10 +75,10 @@ class BookingService
                 'series' => $addClientBookingDto->passportSeries
             ]);
         }
-
+        $passport->refresh();
         $addBookingDto = new AddBoockingDto(
             roomId: $addClientBookingDto->roomId,
-            clientId: $passport->client()->get()->id,
+            clientId: $passport->client->id,
             checkOut: $addClientBookingDto->checkOut,
             checkIn: $addClientBookingDto->checkIn
         );

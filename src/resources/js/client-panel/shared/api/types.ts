@@ -75,9 +75,13 @@ export type TokenDto = {
     token: string
 }
 
-export type AddBoockingDTO = {
+export type AddClientBoockingDTO = {
     checkIn: string,
     checkOut: string,
-    clientId: number,
+    firstName: string,
+    middleName: string,
+    lastName: string,
+    passportNumber: number,
+    passportSeries: number,
     roomId: number
 }

@@ -1,7 +1,8 @@
 import { RoomFilters } from '@/client/features/room/room-filters';
-import styles from './Rooms.module.css';
 import { useUnit } from 'effector-react';
 import { RoomCard, roomModel } from '@/client/entity/room';
+import { AddBoocking } from '@/client/features/booking/add-booking/ui/AddBooking';
+import styles from './Rooms.module.css';
 
 export const RoomsPage = () => {
 
@@ -18,7 +19,10 @@ export const RoomsPage = () => {
                     {
                         rooms.map((room) =>
                             <div key={room.id} className={styles.roomWrap}>
-                                <RoomCard room={room} />
+                                <RoomCard
+                                    room={room}
+                                    bookAction={<AddBoocking roomId={room.id} />}
+                                />
                             </div>
                         )
                     }
