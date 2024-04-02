@@ -5,7 +5,7 @@ import {
     AddBoockingDTO, AddClientDTO, AddStayingDTO,
     ApiException, AuthInfoDto, BookingDTO,
     ClientDTO, GetRoomsParams, ResponseWrap,
-    RoomDTO, StatisticDTO, StayingDTO
+    RoomDTO, StatisticDTO, StayingDTO, UserDto
 } from './types';
 
 export const getAvailableRoomsQuery = async (params?: GetRoomsParams) => {
@@ -118,6 +118,16 @@ export const deleteBookingQuery = async (bookingId: number) => {
     try {
         const response = await axiosInstance.delete(`/bookings/${bookingId}`);
         return response;
+    } catch (error) {
+        const err = error as AxiosError<ApiException>;
+        throw err.response?.data.message
+    }
+}
+
+export const getAuthUserQuery = async () => {
+    try {
+        const response = await axiosInstance.get<ResponseWrap<UserDto>>('/auth/me');
+        return response.data;
     } catch (error) {
         const err = error as AxiosError<ApiException>;
         throw err.response?.data.message

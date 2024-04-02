@@ -6,6 +6,7 @@ use App\DTO\LoginDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Resources\UserResource;
+use App\Models\User;
 use App\Services\AuthService;
 
 class AuthController extends Controller
@@ -25,5 +26,20 @@ class AuthController extends Controller
             'token' => $token,
             'user' => UserResource::make($user)
         ]);
+    }
+
+    public function me()
+    {
+        /** @var User */
+        $user = auth()->user();
+        return UserResource::make($user);
+    }
+
+    public function logout()
+    {
+        /** @var User */
+        $user = auth()->user();
+        $user->tokens()->delete();
+        return response()->noContent();
     }
 }
