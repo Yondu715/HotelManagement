@@ -9,11 +9,18 @@ import { Select } from '@/reception/shared/ui/select';
 import { OrderRoomType } from '@/reception/entity/room/model/types';
 import { AddStaying } from '@/reception/features/staying/add-staying';
 import { AddBoocking } from '@/reception/features/booking/add-booking';
+import { useEffect } from 'react';
+import { pageMounted, pageUnmounted } from '../model/store';
 
 export const RoomsPage = () => {
     const rooms = useUnit(roomModel.$rooms);
     const type = useUnit(roomModel.$type);
     const selectedRoomId = useUnit(roomModel.$selectedRoomId);
+
+    useEffect(() => {
+        pageMounted();
+        return () => pageUnmounted();
+    }, []);
 
     return (
         <div className={styles.page}>

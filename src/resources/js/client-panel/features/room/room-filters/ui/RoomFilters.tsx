@@ -53,7 +53,13 @@ export const RoomFilters: FC = () => {
     });
 
     return (
-        <form className={styles.filtersContainer}>
+        <form
+            className={styles.filtersContainer}
+            onSubmit={(e) => {
+                e.preventDefault();
+                searchStarted();
+            }}
+        >
             <DateInput
                 value={checkIn}
                 className={styles.size}
@@ -83,10 +89,6 @@ export const RoomFilters: FC = () => {
                 className={[styles.searchButton, styles.size].join(' ')}
                 loading={isLoading}
                 type="submit"
-                onClick={(e) => {
-                    e.preventDefault();
-                    searchStarted();
-                }}
             >
                 Поиск номеров
             </Button>

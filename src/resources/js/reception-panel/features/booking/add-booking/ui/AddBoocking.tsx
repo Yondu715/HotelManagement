@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { $clientId, formSubmitted, setClientId } from '../model/store';
 import { clientModel } from '@/reception/entity/client';
 import styles from './AddBoocking.module.css';
+import { Select } from '@/reception/shared/ui/select';
 
 export const AddBoocking = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,20 +37,14 @@ export const AddBoocking = () => {
             <Modal title="Бронирование" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form className={styles.form}>
                     <div className={styles.formGroup}>
-                        <select defaultValue={''}>
-                            <option value={''} disabled>Выберите клиента</option>
-                            {
-                                clients.map((client) =>
-                                    <option
-                                        key={client.id}
-                                        value={client.id}
-                                        onClick={() => setClientId(client.id)}
-                                    >
-                                        {`${client.id} ${client.firstName}`}
-                                    </option>
-                                )
-                            }
-                        </select>
+                        <Select
+                            placeholder="Выберите клиента"
+                            options={clients.map((client) => ({
+                                label: `${client.id} ${client.firstName}`,
+                                value: client.id
+                            }))}
+                            onChange={(value) => setClientId(value as number)}
+                        />
                     </div>
                 </form>
             </Modal>

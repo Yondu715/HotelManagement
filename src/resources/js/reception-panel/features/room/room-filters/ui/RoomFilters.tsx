@@ -55,7 +55,13 @@ export const RoomFilters: FC = () => {
     });
 
     return (
-        <form className={styles.filtersContainer}>
+        <form
+            className={styles.filtersContainer}
+            onSubmit={(e) => {
+                e.preventDefault();
+                searchStarted();
+            }}
+        >
             {
                 type === 'book' &&
                 <>
@@ -86,10 +92,6 @@ export const RoomFilters: FC = () => {
                 className={styles.searchButton}
                 loading={isLoading}
                 type="submit"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    searchStarted();
-                }}
             >
                 Поиск номеров
             </Button>
