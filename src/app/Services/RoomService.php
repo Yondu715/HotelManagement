@@ -14,11 +14,12 @@ class RoomService
     {
 
         $bookings = Booking::query()
-            ->where('check_in', '>', now())
+            ->where('check_in', '>=', today())
             ->where(function (Builder $query) use ($getRoomsDto) {
-                $query->whereNotBetween('check_in', [$getRoomsDto->checkIn, $getRoomsDto->checkOut])
-                    ->orWhereNotBetween('check_out', [$getRoomsDto->checkIn, $getRoomsDto->checkOut]);
+                $query->whereBetween('check_in', [$getRoomsDto->checkIn, $getRoomsDto->checkOut])
+                    ->orWhereBetween('check_out', [$getRoomsDto->checkIn, $getRoomsDto->checkOut]);
             })->get();
+        
 
         $stayings = Staying::query()->where([
             'check_out' => null

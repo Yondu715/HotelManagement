@@ -19,7 +19,7 @@ class GetRoomsDto
     ) {
         $this->capacity = $capacity;
         $this->comfortLevel = $comfortLevel;
-        $this->checkIn = $checkIn ? $checkIn : now();
+        $this->checkIn = $checkIn ? $checkIn : today();
         $this->checkOut = $this->getCheckOut($checkIn, $checkOut);
     }
 
@@ -41,6 +41,6 @@ class GetRoomsDto
         if ($checkIn && !$checkOut) {
             return $checkIn;
         }
-        return now();
+        return today();
     }
 }
